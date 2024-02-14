@@ -4,11 +4,13 @@ import React from 'react'
 
 type AppProps = {
     placeholder:string,
-    error?:string
+    error?:string,
+    inputHeight?:number,
 }
-const BasicInput = ({placeholder,error}:AppProps) => {
+const BasicInput = ({placeholder,error,inputHeight=15}:AppProps) => {
   return (
-    <View style={styles.inputView}>
+        
+        <View style={{...styles.inputView,paddingTop:inputHeight}}>
     <TextInput style={styles.input} placeholder={placeholder} onChangeText={(value)=>console.log(value)}/>
      {error && <Text>error</Text>}
     </View>
@@ -19,14 +21,14 @@ export default BasicInput
 
 const styles = StyleSheet.create({
     inputView:{
-        width:"90%",
         borderBottomWidth:1,
         borderBottomColor:"grey",
-        height:50
+        marginBottom:10,
+        width:"100%"
     },
     input:{
         position:"relative",
-        bottom:-27,
+        bottom:-4,
     },error:{
      
     }

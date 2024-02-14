@@ -13,6 +13,7 @@ const Register = ({ route, navigation }: Props) => {
   return (
     <View style={globalStyles.container}>
       <Text style={{ textAlign: "center", marginTop: 50 }}>Register</Text>
+      <View style={{flex:1,justifyContent:"center",alignItems:"center",marginBottom:"30%"}}>
       <View style={styles.cardView}>
         <Text style={{ textAlign: "center" }}>Register</Text>
         <View style={styles.buttonView}>
@@ -48,6 +49,7 @@ const Register = ({ route, navigation }: Props) => {
           </>
         )}
       </View>
+        </View>
     </View>
   );
 };
@@ -56,9 +58,8 @@ export default Register;
 
 const styles = StyleSheet.create({
   cardView: {
-    marginTop: 90,
+    width:"100%",
     padding: 20,
-    marginHorizontal: 15,
     backgroundColor: "#fff",
     elevation: 30,
     borderRadius: 15,

@@ -44,13 +44,13 @@ export default function App() {
                   animation: Platform.OS === "ios" ? "fade" : "simple_push",
                 }}
                 /> */}
-              {/* <RootStack.Screen
+              <RootStack.Screen
                 name="AddReminder"
                 component={AddReminder}
                 options={{
                   animation: Platform.OS === "ios" ? "fade" : "simple_push",
                 }}
-                /> */}
+                />
               <RootStack.Screen
                 name="EditProfile"
                 component={EditProfile}
