@@ -13,7 +13,7 @@ const AddReminder = ({ route, navigation }: Props) => {
   return (
     <View style={{ ...globalStyles.container }}>
       <View style={styles.header}>
-        <Text>AddReminder</Text>
+        <Text style={{fontFamily:"Montserrat-Bold"}}>AddReminder</Text>
       </View>
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <View style={styles.inputContainer}>

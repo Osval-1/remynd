@@ -1,13 +1,16 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Platform ,} from "react-native";
-import react, { useState } from "react";
+import react, { useState,useCallback} from "react";
 import Register from "./src/screens/Register";
 import Reminders from "./src/screens/Reminders";
 import AddReminder from "./src/screens/AddReminder";
 import EditProfile from "./src/screens/EditProfile";
+import * as SplashScreen from "expo-splash-screen";
+import { useFonts } from "expo-font";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider,SafeAreaView } from "react-native-safe-area-context";
+import Navigator from "./src/components/Navigator";
 
 export type RootStackParamList = {
   Register: undefined;
@@ -18,49 +21,30 @@ export type RootStackParamList = {
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
+SplashScreen.preventAutoHideAsync();
+
+
 export default function App() {
   const [authenticated, setAuthenticated] = useState(true);
+  const [fontsLoaded, fontError] = useFonts({
+    "Montserrat-Bold": require("./assets/fonts/Montserrat-Bold.ttf"),
+    "Montserrat-Regular": require("./assets/fonts/Montserrat-Regular.ttf"),
+    "Montserrat-SemiBold": require("./assets/fonts/Montserrat-SemiBold.ttf"),
+  });
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded || fontError) {
+    await SplashScreen.hideAsync();
+    console.log(
+      'true'
+    )
+    }
+  }, [fontsLoaded, fontError]);
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
-        <SafeAreaView style={{flex: 1}}>
-        <RootStack.Navigator screenOptions={{ headerShown: false }}>
-          {!authenticated ? (
-            <>
-              <RootStack.Screen
-                name="Register"
-                component={Register}
-                options={{
-                  animation: Platform.OS === "ios" ? "fade" : "simple_push",
-                }}
-                />
-            </>
-          ) : (
-            <>
-              {/* <RootStack.Screen
-                name="Reminders"
-                component={Reminders}
-                options={{
-                  animation: Platform.OS === "ios" ? "fade" : "simple_push",
-                }}
-                /> */}
-              <RootStack.Screen
-                name="AddReminder"
-                component={AddReminder}
-                options={{
-                  animation: Platform.OS === "ios" ? "fade" : "simple_push",
-                }}
-                />
-              <RootStack.Screen
-                name="EditProfile"
-                component={EditProfile}
-                options={{
-                  animation: Platform.OS === "ios" ? "fade" : "simple_push",
-                }}
-                />
-            </>
-          )}
-        </RootStack.Navigator>
+      <NavigationContainer >
+        <SafeAreaView style={{flex: 1}} onLayout={onLayoutRootView}>
+        <Navigator/>
+        <StatusBar style="dark" />
           </SafeAreaView>
       </NavigationContainer>
     </SafeAreaProvider>
