@@ -32,13 +32,13 @@ const Navigator = () => {
       </>
     ) : (
       <>
-        {/* <RootStack.Screen
+        <RootStack.Screen
           name="Reminders"
           component={Reminders}
           options={{
             animation: Platform.OS === "ios" ? "fade" : "simple_push",
           }}
-          /> */}
+          />
         <RootStack.Screen
           name="AddReminder"
           component={AddReminder}

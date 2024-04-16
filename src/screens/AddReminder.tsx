@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View ,TouchableOpacity} from "react-native";
 import React from "react";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "App";
 import { globalStyles } from "../styles/global";
+import { MaterialIcons } from "@expo/vector-icons";
 import BasicInput from "../../src/components/BasicInput/BasicInput";
 import SelectInput from "../../src/components/SelectInput/SelectInput";
 import DateTimeInput from "../../src/components/DateTimeInput/DateTimeInput";
@@ -13,7 +14,10 @@ const AddReminder = ({ route, navigation }: Props) => {
   return (
     <View style={{ ...globalStyles.container }}>
       <View style={styles.header}>
-        <Text style={{fontFamily:"Montserrat-Bold"}}>AddReminder</Text>
+        <TouchableOpacity activeOpacity={0.6} delayPressIn={50} onPress={navigation.goBack}>
+        <MaterialIcons name="arrow-back" size={30} color="black" />
+        </TouchableOpacity>
+        <Text style={{ fontFamily: "Montserrat-Bold" }}>AddReminder</Text>
       </View>
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <View style={styles.inputContainer}>
@@ -21,41 +25,48 @@ const AddReminder = ({ route, navigation }: Props) => {
             Make Your Own Reminder
           </Text>
           <View>
-          <Text>Title</Text>
+            <Text>Title</Text>
           </View>
-          <BasicInput inputHeight={2} placeholder="Insert Title"/>
+          <BasicInput inputHeight={2} placeholder="Insert Title" />
           <View>
-          <Text>Category</Text>
+            <Text>Category</Text>
           </View>
-          <SelectInput label="Select Category"/>
-          <View style={{flexDirection:"row",justifyContent:"flex-start",marginTop:15,gap:50}}>
-            <View style={{justifyContent:"flex-start"}}>
+          <SelectInput label="Select Category" />
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "flex-start",
+              marginTop: 15,
+              gap: 50,
+            }}
+          >
+            <View style={{ justifyContent: "flex-start" }}>
               <View>
-              <Text>Time</Text>
+                <Text>Time</Text>
               </View>
-              <View style={{flexDirection:"row",gap:4}}>
-                <DateTimeInput label="00"/>
+              <View style={{ flexDirection: "row", gap: 4 }}>
+                <DateTimeInput label="00" />
                 <Text>:</Text>
-                <DateTimeInput label="00"/>
+                <DateTimeInput label="00" />
               </View>
             </View>
             <View>
               <View>
-              <Text>Calender</Text>
+                <Text>Calender</Text>
               </View>
-              <View style={{flexDirection:"row",gap:4}}>
-              <DateTimeInput label="dd"/>
-              <Text>:</Text>
-              <DateTimeInput label="mm"/>
-              <Text>:</Text>
-              <DateTimeInput label="yyyy"/>
+              <View style={{ flexDirection: "row", gap: 4 }}>
+                <DateTimeInput label="dd" />
+                <Text>:</Text>
+                <DateTimeInput label="mm" />
+                <Text>:</Text>
+                <DateTimeInput label="yyyy" />
               </View>
             </View>
           </View>
           <View>
-          <Text>Repeat</Text>
+            <Text>Repeat</Text>
           </View>
-          <SelectInput label="Once"/>
+          <SelectInput label="Once" />
         </View>
       </View>
     </View>
@@ -65,7 +76,11 @@ const AddReminder = ({ route, navigation }: Props) => {
 export default AddReminder;
 
 const styles = StyleSheet.create({
-  header: {},
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 15,
+  },
   inputContainer: {
     width: "90%",
     backgroundColor: "#fff",
@@ -73,7 +88,7 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     padding: 20,
     borderRadius: 15,
-    marginBottom:"25%",
+    marginBottom: "25%",
   },
   inputContainerHeader: {
     paddingVertical: 10,
@@ -83,6 +98,6 @@ const styles = StyleSheet.create({
     position: "relative",
     top: -35,
     textAlign: "center",
-    color:"#fff"
+    color: "#fff",
   },
 });

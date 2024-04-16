@@ -7,7 +7,7 @@ import {
   ScrollView,
   TextInput,
 } from "react-native";
-import React from "react";
+import React,{useEffect} from "react";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "App";
 import {
@@ -19,10 +19,17 @@ import {
 } from "@expo/vector-icons";
 import { globalStyles } from "../styles/global";
 import Reminder from "../components/Reminder/Reminder";
+import * as SQLite from 'expo-sqlite';
+import { databaseTransaction } from "../../src/utils/database";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Reminders">;
 
 const Reminders = ({ route, navigation }: Props) => {
+  useEffect(()=>{
+    const db = SQLite.openDatabase('Reminders.db');
+    // databaseTransaction.createReminderTable(db)
+    // databaseTransaction.insertReminder(db,"get up","daily alarm","wednesday")
+  },[])
   return (
     <ScrollView
       contentContainerStyle={styles.container}
@@ -43,10 +50,10 @@ const Reminders = ({ route, navigation }: Props) => {
             <Text>REMYND</Text>
           </View>
           <View style={styles.addTaskView}>
-            <TouchableOpacity style={styles.addTextButton} activeOpacity={0.6}>
+            <TouchableOpacity style={styles.addTextButton} activeOpacity={0.6} onPress={()=>navigation.navigate("AddReminder")}>
               <AntDesign name="pluscircle" size={40} color="#007AFF" />
             </TouchableOpacity>
-            <Text style={styles.addTaskText}> Add Task</Text>
+            <Text style={styles.addTaskText}> Add Reminder</Text>
           </View>
         </View>
         <View style={styles.headerSearch}>
@@ -101,10 +108,10 @@ const styles = StyleSheet.create({
   },
   addTaskText: {
     backgroundColor: "#9DCCFF",
-    paddingHorizontal: 5,
+    paddingHorizontal: 7,
     borderRadius: 15,
     color: "#005CBB",
-    fontSize: 12,
+    fontSize: 10,
   },
   addTextButton: {
     position: "relative",
