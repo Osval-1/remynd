@@ -3,11 +3,10 @@ import {
   Text,
   View,
   TouchableOpacity,
-  ImageBackground,
   ScrollView,
   TextInput,
 } from "react-native";
-import React,{useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "App";
 import {
@@ -19,17 +18,25 @@ import {
 } from "@expo/vector-icons";
 import { globalStyles } from "../styles/global";
 import Reminder from "../components/Reminder/Reminder";
-import * as SQLite from 'expo-sqlite';
-import { databaseTransaction } from "../../src/utils/database";
+import { database } from "../../src/utils/database";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Reminders">;
 
 const Reminders = ({ route, navigation }: Props) => {
-  useEffect(()=>{
-    const db = SQLite.openDatabase('Reminders.db');
-    // databaseTransaction.createReminderTable(db)
-    // databaseTransaction.insertReminder(db,"get up","daily alarm","wednesday")
-  },[])
+  const [reminders, setReminders] = useState([]);
+  useEffect(() => {
+    // database.createReminderTable();
+    database.createReminder("It Works 2","I fina","thursday 1")
+    .then((results) => console.log(results))
+    .catch((error) => console.log(error));
+    // database.clearAllReminders();
+    database
+      .getReminders()
+      .then((results: any) => console.log(results))
+      .then((results: any) => setReminders(results))
+      .catch((error) => console.log(error));
+    console.log("yay", reminders);
+  }, []);
   return (
     <ScrollView
       contentContainerStyle={styles.container}
@@ -50,27 +57,32 @@ const Reminders = ({ route, navigation }: Props) => {
             <Text>REMYND</Text>
           </View>
           <View style={styles.addTaskView}>
-            <TouchableOpacity style={styles.addTextButton} activeOpacity={0.6} onPress={()=>navigation.navigate("AddReminder")}>
+            <TouchableOpacity
+              style={styles.addTextButton}
+              activeOpacity={0.6}
+              onPress={() => navigation.navigate("AddReminder")}
+            >
               <AntDesign name="pluscircle" size={40} color="#007AFF" />
             </TouchableOpacity>
             <Text style={styles.addTaskText}> Add Reminder</Text>
           </View>
         </View>
         <View style={styles.headerSearch}>
-        <FontAwesome name="search" size={20} color="grey" />
-          <TextInput placeholder="Search here..." style={{width:"100%"}} />
+          <FontAwesome name="search" size={20} color="grey" />
+          <TextInput placeholder="Search here..." style={{ width: "100%" }} />
         </View>
       </View>
-      <Reminder title="this is the first alert" body="this is the first body message" alertTime="7th febuary 2017"/>
-      <Reminder title="this is the first alert" body="this is the first body message" alertTime="7th febuary 2017"/>
-      <Reminder title="this is the first alert" body="this is the first body message" alertTime="7th febuary 2017"/>
-      <Reminder title="this is the first alert" body="this is the first body message" alertTime="7th febuary 2017"/>
-      <Reminder title="this is the first alert" body="this is the first body message" alertTime="7th febuary 2017"/>
-      <Reminder title="this is the first alert" body="this is the first body message" alertTime="7th febuary 2017"/>
-      <Reminder title="this is the first alert" body="this is the first body message" alertTime="7th febuary 2017"/>
-      <Reminder title="this is the first alert" body="this is the first body message" alertTime="7th febuary 2017"/>
-      <Reminder title="this is the first alert" body="this is the first body message" alertTime="7th febuary 2017"/>
-      <Reminder title="this is the first alert" body="this is the first body message" alertTime="7th febuary 2017"/>
+      {reminders &&
+        reminders.map((reminder: any) => {
+          return (
+            <Reminder
+              key={reminder.id}
+              title={reminder.title}
+              body={reminder.body}
+              alertTime={reminder.alertTime}
+            />
+          );
+        })}
     </ScrollView>
   );
 };
@@ -83,17 +95,16 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: "#fff",
-    paddingBottom:20,
+    paddingBottom: 20,
   },
   headerSearch: {
     backgroundColor: "#f5f5f5bd",
-    marginHorizontal:20,
-    flexDirection:"row",
-    alignItems:"center",
-    gap:4,
-    borderRadius:5,
-    padding:5
-
+    marginHorizontal: 20,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+    borderRadius: 5,
+    padding: 5,
   },
   headerTop: {
     flexDirection: "row",

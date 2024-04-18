@@ -1,10 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View ,TouchableOpacity} from 'react-native'
 import React from 'react'
+import { AntDesign } from '@expo/vector-icons';
 
 type AppProps={
    title:string,
    body:string,
-   alertTime:string,    
+   alertTime:string,
+   onDelete:()=>void    
 }
 
 const Reminder = ({title,body,alertTime}:AppProps) => {
@@ -13,6 +15,9 @@ const Reminder = ({title,body,alertTime}:AppProps) => {
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.body}>{body}</Text>
       <Text style={styles.alertTime}>{alertTime}</Text>
+      <TouchableOpacity style={styles.deleteButton}>
+      <AntDesign name="delete" size={24} color="black" />
+      </TouchableOpacity>
     </View>
   )
 }
@@ -31,4 +36,7 @@ const styles = StyleSheet.create({
   title:{},
   body:{},
   alertTime:{},
+  deleteButton:{
+    marginLeft:0
+  }
 })

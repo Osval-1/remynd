@@ -1,10 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Platform ,} from "react-native";
+import { StyleSheet} from "react-native";
 import react, { useState,useCallback} from "react";
-import Register from "./src/screens/Register";
-import Reminders from "./src/screens/Reminders";
-import AddReminder from "./src/screens/AddReminder";
-import EditProfile from "./src/screens/EditProfile";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
