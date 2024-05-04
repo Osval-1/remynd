@@ -26,17 +26,21 @@ const Reminders = ({ route, navigation }: Props) => {
   const [reminders, setReminders] = useState([]);
   useEffect(() => {
     // database.createReminderTable();
-    database.createReminder("It Works 2","I fina","thursday 1")
-    .then((results) => console.log(results))
-    .catch((error) => console.log(error));
-    // database.clearAllReminders();
+    // database.createReminder("It Works 2","I fina","thursday 6")
+    // .then((results) => console.log(results))
+    // .catch((error) => console.log(error));
+    // database.clearAllReminders().then((results: any) => setReminders([]));
     database
       .getReminders()
-      .then((results: any) => console.log(results))
       .then((results: any) => setReminders(results))
       .catch((error) => console.log(error));
     console.log("yay", reminders);
   }, []);
+
+  const handleAddTodo = ()=>{}
+  const handleUpdateTodo = ()=>{}
+  const handledeleteTodo = ()=>{}
+  const handleddTodo = ()=>{}
   return (
     <ScrollView
       contentContainerStyle={styles.container}
@@ -80,6 +84,7 @@ const Reminders = ({ route, navigation }: Props) => {
               title={reminder.title}
               body={reminder.body}
               alertTime={reminder.alertTime}
+              onDelete={()=>database.deleteReminder(reminder.id)}
             />
           );
         })}

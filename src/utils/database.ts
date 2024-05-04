@@ -54,9 +54,10 @@ const deleteReminder = (id:string)=>{
       tx.executeSql(
         'DELETE FROM reminders WHERE id = ?;',
         [id],
-        (_, { rowsAffected }) => {
+        (_, { rowsAffected,rows }) => {
           if (rowsAffected > 0) {
-            resolve(true); 
+            console.log(rows._array)
+            resolve(rows); 
           } else {
             reject(new Error('Reminder not found.'));
           }
@@ -88,7 +89,7 @@ const clearAllReminders = ()=>{
   return new Promise((resolve, reject) => {
     db.transaction((tx) => {
       tx.executeSql(
-        'DELETE * FROM reminder;',
+        'DELETE * FROM reminders;',
         [],
         () => {
           resolve(true);

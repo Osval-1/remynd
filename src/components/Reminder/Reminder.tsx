@@ -6,16 +6,16 @@ type AppProps={
    title:string,
    body:string,
    alertTime:string,
-   onDelete:()=>void    
+   onDelete?:()=>void    
 }
 
-const Reminder = ({title,body,alertTime}:AppProps) => {
+const Reminder = ({title,body,alertTime,onDelete}:AppProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.body}>{body}</Text>
       <Text style={styles.alertTime}>{alertTime}</Text>
-      <TouchableOpacity style={styles.deleteButton}>
+      <TouchableOpacity style={styles.deleteButton}  activeOpacity={0.6} delayPressIn={50} onPress={onDelete}>
       <AntDesign name="delete" size={24} color="black" />
       </TouchableOpacity>
     </View>
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
   body:{},
   alertTime:{},
   deleteButton:{
-    marginLeft:0
+    marginLeft:0,
+    padding:5
   }
 })
