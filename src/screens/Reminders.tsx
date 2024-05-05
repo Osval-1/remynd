@@ -19,6 +19,7 @@ import {
 import { globalStyles } from "../styles/global";
 import Reminder from "../components/Reminder/Reminder";
 import { database } from "../../src/utils/database";
+import i18n from "../i18n";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Reminders">;
 
@@ -37,10 +38,10 @@ const Reminders = ({ route, navigation }: Props) => {
     console.log("yay", reminders);
   }, []);
 
-  const handleAddTodo = ()=>{}
-  const handleUpdateTodo = ()=>{}
-  const handledeleteTodo = ()=>{}
-  const handleddTodo = ()=>{}
+  const handleAddTodo = () => {};
+  const handleUpdateTodo = () => {};
+  const handledeleteTodo = () => {};
+  const handleddTodo = () => {};
   return (
     <ScrollView
       contentContainerStyle={styles.container}
@@ -68,7 +69,8 @@ const Reminders = ({ route, navigation }: Props) => {
             >
               <AntDesign name="pluscircle" size={40} color="#007AFF" />
             </TouchableOpacity>
-            <Text style={styles.addTaskText}> Add Reminder</Text>
+            {/* <Text style={styles.addTaskText}> Add Reminder</Text> */}
+            <Text style={styles.addTaskText}>{i18n.t("addreminder")}</Text>
           </View>
         </View>
         <View style={styles.headerSearch}>
@@ -84,7 +86,7 @@ const Reminders = ({ route, navigation }: Props) => {
               title={reminder.title}
               body={reminder.body}
               alertTime={reminder.alertTime}
-              onDelete={()=>database.deleteReminder(reminder.id)}
+              onDelete={() => database.deleteReminder(reminder.id)}
             />
           );
         })}

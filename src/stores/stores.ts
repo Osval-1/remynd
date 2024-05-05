@@ -1,7 +1,13 @@
 import { create } from "zustand";
 
-const useStore = create((set) => ({
-  Reminders: ["sdasd","asdasd","dasd"],
-  updateReminders: () =>
-    set((state: any) => ({ Reminders: state.Reminders + 1 })),
+interface ReminderState {
+  Reminders: any[];
+  theme: string;
+  updateReminders: (reminder: string) => void;
+}
+const useReminderStore = create<ReminderState>()((set) => ({
+  Reminders: ["sdasd", "asdasd", "dasd"],
+  theme: "light",
+  updateReminders: (reminder) =>
+    set((state: any) => ({ Reminders: state.Reminders.push(reminder) })),
 }));
