@@ -20,6 +20,7 @@ import { globalStyles } from "../styles/global";
 import Reminder from "../components/Reminder/Reminder";
 import { database } from "../../src/utils/database";
 import i18n from "../i18n";
+import { reminderModel } from "src/types/remainder";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Reminders">;
 
@@ -35,10 +36,14 @@ const Reminders = ({ route, navigation }: Props) => {
       .getReminders()
       .then((results: any) => setReminders(results))
       .catch((error) => console.log(error));
-    console.log("yay", reminders);
+    console.log("yay", reminders) ;
   }, []);
 
-  const handleAddTodo = () => {};
+  const handleAddTodo = (reminder:reminderModel) => {
+    database.addReminder(reminder)
+    .then((results:any)=>setReminders(results))
+    .catch((error=>console.log(error)))
+  };
   const handleUpdateTodo = () => {};
   const handledeleteTodo = () => {};
   const handleddTodo = () => {};
@@ -69,7 +74,6 @@ const Reminders = ({ route, navigation }: Props) => {
             >
               <AntDesign name="pluscircle" size={40} color="#007AFF" />
             </TouchableOpacity>
-            {/* <Text style={styles.addTaskText}> Add Reminder</Text> */}
             <Text style={styles.addTaskText}>{i18n.t("addreminder")}</Text>
           </View>
         </View>

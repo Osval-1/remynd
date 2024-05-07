@@ -1,4 +1,5 @@
 import * as SQLite from 'expo-sqlite';
+import { reminderModel } from 'src/types/remainder';
 
 const db = SQLite.openDatabase('Reminders.db'); 
 
@@ -17,12 +18,12 @@ const createReminderTable = ()=>{
         });
       };
 
-const createReminder = (title:string,body:string,alertTime:string)=>{
+const addReminder = (reminder:reminderModel)=>{
   return new Promise((resolve, reject) => {
     db.transaction((tx) => {
       tx.executeSql(
         'INSERT INTO reminders (title, body,alertTime) VALUES (?, ?, ?);',
-        [title,body,alertTime],
+        [reminder.title,reminder.body,reminder.alertTime],
         (_, { rowsAffected, insertId }) => {
           if (rowsAffected > 0) {
             resolve(insertId); 
@@ -105,6 +106,6 @@ export  const database = {
     deleteReminder,
     updateReminder,
     clearAllReminders,
-    createReminder,
+    addReminder,
     getReminders
 }

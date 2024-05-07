@@ -1,15 +1,14 @@
 import { StyleSheet, Text, View ,TouchableOpacity} from 'react-native'
 import React from 'react'
 import { AntDesign } from '@expo/vector-icons';
+import { reminderModel } from 'src/types/remainder';
 
-type AppProps={
-   title:string,
-   body:string,
-   alertTime:string,
-   onDelete?:()=>void    
+interface reminderCompModel extends reminderModel{
+   onDelete?:()=>void ,
+   onUpdate?:()=>void   
 }
 
-const Reminder = ({title,body,alertTime,onDelete}:AppProps) => {
+const Reminder = ({title,body,alertTime,onDelete}:reminderCompModel) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
