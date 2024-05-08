@@ -4,8 +4,8 @@ import react, { useState,useCallback} from "react";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NavigationContainer } from "@react-navigation/native";
-import { SafeAreaProvider,SafeAreaView } from "react-native-safe-area-context";
+import { NavigationContainer ,DefaultTheme} from "@react-navigation/native";
+import { SafeAreaProvider,SafeAreaView } from "react-native-safe-area-context"
 import Navigator from "./src/components/Navigator";
 
 export type RootStackParamList = {
@@ -19,6 +19,14 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 SplashScreen.preventAutoHideAsync();
 
+
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: 'rgb(255, 45, 85)',
+  },
+};
 
 export default function App() {
   const [authenticated, setAuthenticated] = useState(true);

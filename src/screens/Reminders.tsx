@@ -56,13 +56,13 @@ const Reminders = ({ route, navigation }: Props) => {
     >
       <View style={styles.header}>
         <View style={styles.headerTop}>
-          <View>
+          <TouchableOpacity>
             <MaterialCommunityIcons
               name="account-circle-outline"
               size={40}
               color="black"
             />
-          </View>
+          </TouchableOpacity>
           <View>
             <Text>REMYND</Text>
           </View>
