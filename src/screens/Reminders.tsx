@@ -36,7 +36,6 @@ const Reminders = ({ route, navigation }: Props) => {
       .getReminders()
       .then((results: any) => setReminders(results))
       .catch((error) => console.log(error));
-    console.log("yay", reminders) ;
   }, []);
 
   const handleAddTodo = (reminder:reminderModel) => {

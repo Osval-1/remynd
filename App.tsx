@@ -7,6 +7,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer ,DefaultTheme} from "@react-navigation/native";
 import { SafeAreaProvider,SafeAreaView } from "react-native-safe-area-context"
 import Navigator from "./src/components/Navigator";
+import { lightTheme,darkTheme } from "./src/styles/theme";
+import { useColorScheme } from 'react-native';
 
 export type RootStackParamList = {
   Register: undefined;
@@ -20,16 +22,11 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 SplashScreen.preventAutoHideAsync();
 
 
-const MyTheme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: 'rgb(255, 45, 85)',
-  },
-};
-
 export default function App() {
+
   const [authenticated, setAuthenticated] = useState(true);
+
+  const colorScheme = useColorScheme()
   const [fontsLoaded, fontError] = useFonts({
     "Montserrat-Bold": require("./assets/fonts/Montserrat-Bold.ttf"),
     "Montserrat-Regular": require("./assets/fonts/Montserrat-Regular.ttf"),
@@ -42,7 +39,7 @@ export default function App() {
   }, [fontsLoaded, fontError]);
   return (
     <SafeAreaProvider>
-      <NavigationContainer >
+      <NavigationContainer theme={colorScheme=="dark"?darkTheme:lightTheme}>
         <SafeAreaView style={{flex: 1}} onLayout={onLayoutRootView}>
         <Navigator/>
         <StatusBar style="dark" />

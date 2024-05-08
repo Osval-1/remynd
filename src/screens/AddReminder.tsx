@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View ,TouchableOpacity} from "react-native";
+import { StyleSheet, Text, View ,TouchableOpacity,KeyboardAvoidingView} from "react-native";
 import React from "react";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "App";
@@ -19,7 +19,7 @@ const AddReminder = ({ route, navigation }: Props) => {
         </TouchableOpacity>
         <Text style={{ fontFamily: "Montserrat-Bold" }}>AddReminder</Text>
       </View>
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <KeyboardAvoidingView behavior="padding" style={{ flex: 1,justifyContent:'center',alignItems:"center" }}>
         <View style={styles.inputContainer}>
           <Text style={styles.inputContainerHeader}>
             Make Your Own Reminder
@@ -68,7 +68,7 @@ const AddReminder = ({ route, navigation }: Props) => {
           </View>
           <SelectInput label="Once" />
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </View>
   );
 };
@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
     gap: 15,
   },
   inputContainer: {
+    flex:1,
     width: "90%",
     backgroundColor: "#fff",
     elevation: 5,
