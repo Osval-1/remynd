@@ -19,6 +19,7 @@ import {
 import { globalStyles } from "@/styles/global";
 import Reminder from "@/components/Reminder/Reminder";
 import { database } from "@/utils/database";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import i18n from "../i18n";
 import { reminderModel } from "@/types/remainder";
 
@@ -26,6 +27,7 @@ type Props = NativeStackScreenProps<RootStackParamList, "Reminders">;
 
 const Reminders = ({ route, navigation }: Props) => {
   const [reminders, setReminders] = useState([]);
+  const insets = useSafeAreaInsets()
   useEffect(() => {
     // database.createReminderTable();
     // database.createReminder("It Works 2","I fina","thursday 6")
@@ -48,7 +50,13 @@ const Reminders = ({ route, navigation }: Props) => {
   const handleddTodo = () => {};
   return (
     <ScrollView
-      contentContainerStyle={styles.container}
+      contentContainerStyle={{...styles.container,
+      // Paddings to handle safe area
+      paddingTop: insets.top,
+      paddingBottom: insets.bottom,
+      paddingLeft: insets.left,
+      paddingRight: insets.right,
+      }}
       stickyHeaderIndices={[0]}
       showsVerticalScrollIndicator={false}
       // alwaysBounceVertical={false}
@@ -63,7 +71,7 @@ const Reminders = ({ route, navigation }: Props) => {
             />
           </TouchableOpacity>
           <View>
-            <Text>REMYND</Text>
+            <Text style={{fontFamily:"Montserrat-SemiBold"}}>REMYND</Text>
           </View>
           <View style={styles.addTaskView}>
             <TouchableOpacity

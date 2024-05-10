@@ -13,12 +13,6 @@ type Props = NativeStackScreenProps<RootStackParamList, "AddReminder">;
 const AddReminder = ({ route, navigation }: Props) => {
   return (
     <View style={{ ...globalStyles.container }}>
-      <View style={styles.header}>
-        <TouchableOpacity activeOpacity={0.6} delayPressIn={50} onPress={navigation.goBack}>
-        <MaterialIcons name="arrow-back" size={30} color="black" />
-        </TouchableOpacity>
-        <Text style={{ fontFamily: "Montserrat-Bold" }}>AddReminder</Text>
-      </View>
       <KeyboardAvoidingView behavior="padding" style={{ flex: 1,justifyContent:'center',alignItems:"center" }}>
         <View style={styles.inputContainer}>
           <Text style={styles.inputContainerHeader}>
@@ -82,14 +76,12 @@ const styles = StyleSheet.create({
     gap: 15,
   },
   inputContainer: {
-    flex:1,
     width: "90%",
     backgroundColor: "#fff",
     elevation: 5,
     shadowColor: "#000",
     padding: 20,
     borderRadius: 15,
-    marginBottom: "25%",
   },
   inputContainerHeader: {
     paddingVertical: 10,
