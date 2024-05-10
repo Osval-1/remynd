@@ -16,11 +16,11 @@ import {
   FontAwesome,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
-import { globalStyles } from "../styles/global";
-import Reminder from "../components/Reminder/Reminder";
-import { database } from "../../src/utils/database";
+import { globalStyles } from "@/styles/global";
+import Reminder from "@/components/Reminder/Reminder";
+import { database } from "@/utils/database";
 import i18n from "../i18n";
-import { reminderModel } from "src/types/remainder";
+import { reminderModel } from "@/types/remainder";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Reminders">;
 
