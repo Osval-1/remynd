@@ -5,8 +5,8 @@ import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import Navigator from "./src/components/Navigator";
-import { lightTheme, darkTheme } from "./src/styles/theme";
+import Navigator from "@/components/Navigator";
+import { lightTheme, darkTheme } from "@/styles/theme";
 import { useColorScheme } from "react-native";
 
 export type RootStackParamList = {
