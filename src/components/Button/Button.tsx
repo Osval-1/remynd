@@ -9,7 +9,12 @@ type AppProps = {
   onPress: (...args: any) => void;
 };
 
-const Button = ({ label, outlined = false, active = true ,onPress}: AppProps) => {
+const Button = ({
+  label,
+  outlined = false,
+  active = true,
+  onPress,
+}: AppProps) => {
   return (
     <>
       {outlined ? (
@@ -23,35 +28,30 @@ const Button = ({ label, outlined = false, active = true ,onPress}: AppProps) =>
             marginVertical: 10,
           }}
           activeOpacity={0.5}
-          onPress={onPress}
-        >
+          onPress={onPress}>
           <Text
             style={{
               color: active ? "#fff" : "#000",
               textAlign: "center",
-            }}
-          >
+            }}>
             {label}
           </Text>
         </TouchableOpacity>
       ) : (
         <TouchableOpacity
           style={{
-            backgroundColor:"#0066CC",
+            backgroundColor: "#0066CC",
             paddingVertical: 8,
             borderRadius: 5,
             marginVertical: 10,
-
           }}
           activeOpacity={0.5}
-          onPress={onPress}
-        >
+          onPress={onPress}>
           <Text
             style={{
-              color:"#fff",
+              color: "#fff",
               textAlign: "center",
-            }}
-          >
+            }}>
             {label}
           </Text>
         </TouchableOpacity>

@@ -1,4 +1,10 @@
-import { StyleSheet, Text, View ,TouchableOpacity,KeyboardAvoidingView} from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+} from "react-native";
 import React from "react";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "App";
@@ -13,7 +19,9 @@ type Props = NativeStackScreenProps<RootStackParamList, "AddReminder">;
 const AddReminder = ({ route, navigation }: Props) => {
   return (
     <View style={{ ...globalStyles.container }}>
-      <KeyboardAvoidingView behavior="padding" style={{ flex: 1,justifyContent:'center',alignItems:"center" }}>
+      <KeyboardAvoidingView
+        behavior="padding"
+        style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <View style={styles.inputContainer}>
           <Text style={styles.inputContainerHeader}>
             Make Your Own Reminder
@@ -32,8 +40,7 @@ const AddReminder = ({ route, navigation }: Props) => {
               justifyContent: "flex-start",
               marginTop: 15,
               gap: 50,
-            }}
-          >
+            }}>
             <View style={{ justifyContent: "flex-start" }}>
               <View>
                 <Text>Time</Text>

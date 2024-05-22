@@ -23,7 +23,13 @@ const EditProfile = ({ route, navigation }: Props) => {
           Edit Profile
         </Text>
       </View>
-      <View style={{ marginTop: 50,borderWidth:1,borderColor:"#EFEDED",borderRadius:5}}>
+      <View
+        style={{
+          marginTop: 50,
+          borderWidth: 1,
+          borderColor: "#EFEDED",
+          borderRadius: 5,
+        }}>
         <TouchableOpacity activeOpacity={0.6} style={styles.tile}>
           <View>
             <Text style={styles.upperText}>User Name:</Text>
@@ -69,8 +75,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginHorizontal: 20,
     alignItems: "center",
-    marginBottom:20,
-  },upperText:{
-    fontSize:18,marginBottom:5
-  }
+    marginBottom: 20,
+  },
+  upperText: {
+    fontSize: 18,
+    marginBottom: 5,
+  },
 });

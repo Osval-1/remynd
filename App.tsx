@@ -26,9 +26,9 @@ export default function App() {
       try {
         // Pre-load fonts, make any API calls you need to do here
         await new Promise((resolve) => setTimeout(resolve, 2000));
-        if (!fontsLoaded) return
-          // Artificially delay for two seconds to simulate a slow loading
-          // experience. Please remove this if you copy and paste the code!
+        if (!fontsLoaded) return;
+        // Artificially delay for two seconds to simulate a slow loading
+        // experience. Please remove this if you copy and paste the code!
       } catch (e) {
         console.warn(e);
       } finally {
@@ -57,8 +57,7 @@ export default function App() {
     <SafeAreaProvider>
       <NavigationContainer
         theme={colorScheme == "dark" ? darkTheme : lightTheme}
-        onReady={onLayoutRootView}
-      >
+        onReady={onLayoutRootView}>
         <Navigator />
         <StatusBar style="dark" />
       </NavigationContainer>

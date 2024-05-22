@@ -27,7 +27,7 @@ type Props = NativeStackScreenProps<RootStackParamList, "Reminders">;
 
 const Reminders = ({ route, navigation }: Props) => {
   const [reminders, setReminders] = useState([]);
-  const insets = useSafeAreaInsets()
+  const insets = useSafeAreaInsets();
   useEffect(() => {
     // database.createReminderTable();
     // database.createReminder("It Works 2","I fina","thursday 6")
@@ -40,22 +40,24 @@ const Reminders = ({ route, navigation }: Props) => {
       .catch((error) => console.log(error));
   }, []);
 
-  const handleAddTodo = (reminder:reminderModel) => {
-    database.addReminder(reminder)
-    .then((results:any)=>setReminders(results))
-    .catch((error=>console.log(error)))
+  const handleAddTodo = (reminder: reminderModel) => {
+    database
+      .addReminder(reminder)
+      .then((results: any) => setReminders(results))
+      .catch((error) => console.log(error));
   };
   const handleUpdateTodo = () => {};
   const handledeleteTodo = () => {};
   const handleddTodo = () => {};
   return (
     <ScrollView
-      contentContainerStyle={{...styles.container,
-      // Paddings to handle safe area
-      paddingTop: insets.top,
-      paddingBottom: insets.bottom,
-      paddingLeft: insets.left,
-      paddingRight: insets.right,
+      contentContainerStyle={{
+        ...styles.container,
+        // Paddings to handle safe area
+        paddingTop: insets.top,
+        paddingBottom: insets.bottom,
+        paddingLeft: insets.left,
+        paddingRight: insets.right,
       }}
       stickyHeaderIndices={[0]}
       showsVerticalScrollIndicator={false}
@@ -71,14 +73,13 @@ const Reminders = ({ route, navigation }: Props) => {
             />
           </TouchableOpacity>
           <View>
-            <Text style={{fontFamily:"Montserrat-SemiBold"}}>REMYND</Text>
+            <Text style={{ fontFamily: "Montserrat-SemiBold" }}>REMYND</Text>
           </View>
           <View style={styles.addTaskView}>
             <TouchableOpacity
               style={styles.addTextButton}
               activeOpacity={0.6}
-              onPress={() => navigation.navigate("AddReminder")}
-            >
+              onPress={() => navigation.navigate("AddReminder")}>
               <AntDesign name="pluscircle" size={40} color="#007AFF" />
             </TouchableOpacity>
             <Text style={styles.addTaskText}>{i18n.t("addreminder")}</Text>

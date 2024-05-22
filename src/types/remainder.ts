@@ -1,5 +1,5 @@
-export interface reminderModel{
-    title:string,
-    body:string,
-    alertTime:string,
+export interface reminderModel {
+  title: string;
+  body: string;
+  alertTime: string;
 }

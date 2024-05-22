@@ -1,4 +1,10 @@
-import { StyleSheet, Text, View, TextInput,TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import { Entypo } from "@expo/vector-icons";
 
@@ -18,10 +24,9 @@ const SelectInput = ({ label, selectedOption }: AppProps) => {
         borderRadius: 15,
         paddingHorizontal: 10,
         paddingVertical: 2,
-        marginTop:10
-      }}
-    >
-      <Text style={{color:"#898686"}}>{label}</Text>
+        marginTop: 10,
+      }}>
+      <Text style={{ color: "#898686" }}>{label}</Text>
       <Entypo name="chevron-down" size={24} color="#898686" />
     </TouchableOpacity>
   );

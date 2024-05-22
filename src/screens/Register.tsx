@@ -13,43 +13,52 @@ const Register = ({ route, navigation }: Props) => {
   return (
     <View style={globalStyles.container}>
       <Text style={{ textAlign: "center", marginTop: 50 }}>Register</Text>
-      <View style={{flex:1,justifyContent:"center",alignItems:"center",marginBottom:"30%"}}>
-      <View style={styles.cardView}>
-        <Text style={{ textAlign: "center" }}>Register</Text>
-        <View style={styles.buttonView}>
-          <Button
-            outlined={true}
-            label="Register"
-            active={authScreen === "Register" ? true : false}
-            onPress={() => setAuthScreen("Register")}
-          />
-          <Button
-            label="Login"
-            outlined={true}
-            active={authScreen === "Login" ? true : false}
-            onPress={() => setAuthScreen("Login")}
-          />
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          marginBottom: "30%",
+        }}>
+        <View style={styles.cardView}>
+          <Text style={{ textAlign: "center" }}>Register</Text>
+          <View style={styles.buttonView}>
+            <Button
+              outlined={true}
+              label="Register"
+              active={authScreen === "Register" ? true : false}
+              onPress={() => setAuthScreen("Register")}
+            />
+            <Button
+              label="Login"
+              outlined={true}
+              active={authScreen === "Login" ? true : false}
+              onPress={() => setAuthScreen("Login")}
+            />
+          </View>
+          {authScreen === "Register" ? (
+            <>
+              <View style={styles.inputView}>
+                <BasicInput placeholder="Email Address" />
+                <BasicInput placeholder="Enter password" />
+                <BasicInput placeholder="Confirm password" />
+              </View>
+              <Button
+                label="Register"
+                onPress={() => console.log("Register")}
+              />
+            </>
+          ) : (
+            <>
+              <View style={styles.inputView}>
+                <BasicInput placeholder="Email Address" />
+                <BasicInput placeholder="Password" />
+              </View>
+              <Button label="Login" onPress={() => console.log("login")} />
+            </>
+          )}
         </View>
-        {authScreen === "Register" ? (
-          <>
-            <View style={styles.inputView}>
-              <BasicInput placeholder="Email Address" />
-              <BasicInput placeholder="Enter password" />
-              <BasicInput placeholder="Confirm password" />
-            </View>
-            <Button label="Register" onPress={()=>console.log("Register")} />
-          </>
-        ) : (
-          <>
-            <View style={styles.inputView}>
-              <BasicInput placeholder="Email Address" />
-              <BasicInput placeholder="Password" />
-            </View>
-            <Button label="Login" onPress={()=>console.log("login")} />
-          </>
-        )}
       </View>
-        </View>
     </View>
   );
 };
@@ -58,7 +67,7 @@ export default Register;
 
 const styles = StyleSheet.create({
   cardView: {
-    width:"100%",
+    width: "100%",
     padding: 20,
     backgroundColor: "#fff",
     elevation: 30,
