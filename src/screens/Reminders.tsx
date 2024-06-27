@@ -10,13 +10,10 @@ import React, { useState, useEffect } from "react";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "App";
 import {
-  Ionicons,
-  MaterialIcons,
   AntDesign,
   FontAwesome,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
-import { globalStyles } from "@/styles/global";
 import Reminder from "@/components/Reminder/Reminder";
 import { database } from "@/utils/database";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -30,7 +27,7 @@ const Reminders = ({ route, navigation }: Props) => {
   const insets = useSafeAreaInsets();
   useEffect(() => {
     // database.createReminderTable();
-    // database.createReminder("It Works 2","I fina","thursday 6")
+    // database.addReminder({title:"It Works 4",body:"I fina",alertTime:"thursday 6"})
     // .then((results) => console.log(results))
     // .catch((error) => console.log(error));
     // database.clearAllReminders().then((results: any) => setReminders([]));
@@ -91,7 +88,7 @@ const Reminders = ({ route, navigation }: Props) => {
         </View>
       </View>
       {reminders &&
-        reminders.map((reminder: any) => {
+        reminders.map((reminder:any) => {
           return (
             <Reminder
               key={reminder.id}

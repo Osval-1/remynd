@@ -6,9 +6,8 @@ import { globalStyles } from "../styles/global";
 import Button from "../../src/components/Button/Button";
 import BasicInput from "../../src/components/BasicInput/BasicInput";
 
-type Props = NativeStackScreenProps<RootStackParamList, "Register">;
 
-const Register = ({ route, navigation }: Props) => {
+const Register = () => {
   const [authScreen, setAuthScreen] = useState("Register");
   return (
     <View style={globalStyles.container}>
