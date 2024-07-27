@@ -9,7 +9,7 @@ import React from "react";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "App";
 import { globalStyles } from "../styles/global";
-import { MaterialIcons,SimpleLineIcons } from "@expo/vector-icons";
+import { MaterialIcons, SimpleLineIcons } from "@expo/vector-icons";
 import BasicInput from "../../src/components/BasicInput/BasicInput";
 import SelectInput from "../../src/components/SelectInput/SelectInput";
 import DateTimeInput from "../../src/components/DateTimeInput/DateTimeInput";

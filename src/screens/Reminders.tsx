@@ -13,14 +13,12 @@ import {
   AntDesign,
   FontAwesome,
   MaterialCommunityIcons,
-  SimpleLineIcons,
 } from "@expo/vector-icons";
 import Reminder from "@/components/Reminder/Reminder";
 import { database } from "@/utils/database";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import i18n from "../i18n";
 import { reminderModel } from "@/types/remainder";
-import { screenWidth, screenHeight } from "@/styles/metrics";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Reminders">;
 
@@ -49,24 +47,27 @@ const Reminders = ({ route, navigation }: Props) => {
   const handledeleteTodo = () => {};
   const handleddTodo = () => {};
   return (
-    <View
-      style={{
+    <ScrollView
+      contentContainerStyle={{
+        ...styles.container,
         // Paddings to handle safe area
         paddingTop: insets.top,
         paddingBottom: insets.bottom,
         paddingLeft: insets.left,
         paddingRight: insets.right,
-        ...styles.container,
-      }}>
+      }}
+      stickyHeaderIndices={[0]}
+      showsVerticalScrollIndicator={false}
+      // alwaysBounceVertical={false}
+    >
       <View style={styles.header}>
         <View style={styles.headerTop}>
           <TouchableOpacity>
-            {/* <MaterialCommunityIcons
+            <MaterialCommunityIcons
               name="account-circle-outline"
               size={40}
               color="black"
-            /> */}
-            <SimpleLineIcons name="settings" size={24} color="black" />
+            />
           </TouchableOpacity>
           <View>
             <Text style={{ fontFamily: "Montserrat-SemiBold" }}>REMYND</Text>
@@ -76,35 +77,29 @@ const Reminders = ({ route, navigation }: Props) => {
               style={styles.addTextButton}
               activeOpacity={0.6}
               onPress={() => navigation.navigate("AddReminder")}>
-              <AntDesign name="pluscircle" size={40} color="#0397FF" />
+              <AntDesign name="pluscircle" size={40} color="#007AFF" />
             </TouchableOpacity>
-            {/* <Text style={styles.addTaskText}>{i18n.t("addreminder")}</Text> */}
+            <Text style={styles.addTaskText}>{i18n.t("addreminder")}</Text>
           </View>
         </View>
         <View style={styles.headerSearch}>
           <FontAwesome name="search" size={20} color="grey" />
-          <TextInput placeholder="Search here..." style={{ flex: 1 }} />
+          <TextInput placeholder="Search here..." style={{ width: "100%" }} />
         </View>
       </View>
-      <ScrollView
-        contentContainerStyle={{}}
-        showsVerticalScrollIndicator={false}
-        // alwaysBounceVertical={false}
-      >
-        {reminders &&
-          reminders.map((reminder: any) => {
-            return (
-              <Reminder
-                key={reminder.id}
-                title={reminder.title}
-                body={reminder.body}
-                alertTime={reminder.alertTime}
-                onDelete={() => database.deleteReminder(reminder.id)}
-              />
-            );
-          })}
-      </ScrollView>
-    </View>
+      {reminders &&
+        reminders.map((reminder:any) => {
+          return (
+            <Reminder
+              key={reminder.id}
+              title={reminder.title}
+              body={reminder.body}
+              alertTime={reminder.alertTime}
+              onDelete={() => database.deleteReminder(reminder.id)}
+            />
+          );
+        })}
+    </ScrollView>
   );
 };
 
@@ -112,28 +107,20 @@ export default Reminders;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#f5f5f5bd",
-    // paddingHorizontal: screenWidth * 0.03,
-    // paddingHorizontal: screenWidth * 0.5,
-
   },
   header: {
     backgroundColor: "#fff",
     paddingBottom: 20,
-    // paddingHorizontal: screenWidth * 0.00703,
-    paddingHorizontal: screenWidth * 0.03,
-
   },
   headerSearch: {
     backgroundColor: "#f5f5f5bd",
-    marginHorizontal: screenWidth * 0.03,
+    marginHorizontal: 20,
     flexDirection: "row",
     alignItems: "center",
     gap: 4,
-    borderRadius: 10,
-    paddingLeft: 10,
-    height: screenHeight * 0.0435,
+    borderRadius: 5,
+    padding: 5,
   },
   headerTop: {
     flexDirection: "row",
@@ -145,7 +132,6 @@ const styles = StyleSheet.create({
   addTaskView: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
   },
   addTaskText: {
     backgroundColor: "#9DCCFF",
