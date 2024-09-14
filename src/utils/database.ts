@@ -33,7 +33,7 @@ const deleteReminder = async (id: string) => {
     await db.runAsync("DELETE FROM reminders WHERE id = ?;", { $id: "aaa" });
   } catch (error) {}
 };
-const updateReminder = async(
+const updateReminder = async (
   id: string,
   title: string,
   body: string,
@@ -45,10 +45,8 @@ const updateReminder = async(
     );
   } catch (error) {}
 };
-const clearAllReminders = async() => {
-  await db.runAsync(
-        "DELETE * FROM reminders;",
-  )
+const clearAllReminders = async () => {
+  await db.runAsync("DELETE * FROM reminders;");
 };
 
 export const database = {

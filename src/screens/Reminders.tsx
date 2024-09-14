@@ -50,7 +50,6 @@ const Reminders = ({ route, navigation }: Props) => {
     <ScrollView
       contentContainerStyle={{
         ...styles.container,
-        // Paddings to handle safe area
         paddingTop: insets.top,
         paddingBottom: insets.bottom,
         paddingLeft: insets.left,
@@ -88,7 +87,7 @@ const Reminders = ({ route, navigation }: Props) => {
         </View>
       </View>
       {reminders &&
-        reminders.map((reminder:any) => {
+        reminders.map((reminder: any) => {
           return (
             <Reminder
               key={reminder.id}

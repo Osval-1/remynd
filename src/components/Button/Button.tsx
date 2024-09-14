@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity, Pressable } from "react-native";
 import React from "react";
+import { styles } from "./styles";
 
 type AppProps = {
   label: string;
@@ -62,6 +63,12 @@ const Button = ({
 
 export default Button;
 
-const styles = StyleSheet.create({
-  buttonView: {},
-});
+export const NewButton = () => {
+  return (
+    <Pressable>
+      <View style={styles.buttonContainer}>
+        <Text>Button</Text>
+      </View>
+    </Pressable>
+  );
+};

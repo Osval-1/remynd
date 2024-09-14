@@ -4,29 +4,37 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Reminders from "../screens/Reminders";
 import AddReminder from "../screens/AddReminder";
 import EditProfile from "../screens/EditProfile";
+import Home from "@/screens/Home";
 
 export type RootStackParamList = {
   Reminders: undefined;
   AddReminder: undefined;
   EditProfile: undefined;
+  Home: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const Navigator = () => {
-  const [authenticated, setAuthenticated] = useState(true);
-
   return (
     <RootStack.Navigator>
-      <RootStack.Screen
+      {/* <RootStack.Screen
         name="Reminders"
         component={Reminders}
         options={{
           animation: Platform.OS === "ios" ? "fade" : "simple_push",
           headerShown: false,
         }}
-      />
+      /> */}
       <RootStack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          animation: Platform.OS === "ios" ? "fade" : "simple_push",
+          headerShown: false,
+        }}
+      />
+      {/* <RootStack.Screen
         name="AddReminder"
         component={AddReminder}
         options={{
@@ -39,7 +47,7 @@ const Navigator = () => {
         options={{
           animation: Platform.OS === "ios" ? "fade" : "simple_push",
         }}
-      />
+      /> */}
     </RootStack.Navigator>
   );
 };

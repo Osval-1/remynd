@@ -6,7 +6,6 @@ import { globalStyles } from "../styles/global";
 import Button from "../../src/components/Button/Button";
 import BasicInput from "../../src/components/BasicInput/BasicInput";
 
-
 const Register = () => {
   const [authScreen, setAuthScreen] = useState("Register");
   return (

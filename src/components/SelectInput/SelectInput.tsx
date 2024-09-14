@@ -23,7 +23,7 @@ const SelectInput = ({ label, selectedOption }: AppProps) => {
         alignItems: "center",
         borderRadius: 10,
         paddingHorizontal: 10,
-        height:"10%",
+        height: "10%",
         marginTop: 10,
       }}>
       <Text style={{ color: "#898686" }}>{label}</Text>
