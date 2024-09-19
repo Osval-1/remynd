@@ -6,28 +6,33 @@ import {
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
 import { NewButton } from "@/components/Button/Button";
+import { NewReminder } from "@/components/Reminder/Reminder";
+import { globalStyles } from "@/styles/global";
 
 const Home = () => {
   const insets = useSafeAreaInsets();
 
   return (
-    <SafeAreaView>
-      <ScrollView>
-        <TextInput />
-        <View homecard>
-          <Text>Hello, Kathryn</Text>
-          <View>
-            <Text>Your plan for today</Text>
-            <Text>1 of 4 completed</Text>
-            <Image />
-          </View>
-          <Text>Show More</Text>
+    // <SafeAreaView>
+    <ScrollView contentContainerStyle={globalStyles.container}>
+      <TextInput />
+      <View>
+        <Text>Hello, Kathryn</Text>
+        <View>
+          <Text>Your plan for today</Text>
+          <Text>1 of 4 completed</Text>
+          <Image />
         </View>
-        <Text></Text>
-        <Text>Home</Text>
-        <NewButton />
-      </ScrollView>
-    </SafeAreaView>
+        <Text>Show More</Text>
+      </View>
+      <Text></Text>
+      <Text>Home</Text>
+      <NewButton />
+      <NewReminder />
+      <NewReminder />
+      <NewReminder />
+    </ScrollView>
+    // </SafeAreaView>
   );
 };
 

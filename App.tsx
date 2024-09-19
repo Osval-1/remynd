@@ -5,7 +5,7 @@ import { useFonts } from "expo-font";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Navigator from "@/components/Navigator";
-import { lightTheme, darkTheme } from "@/styles/theme";
+import { lightTheme } from "@/styles/theme";
 import { useColorScheme } from "react-native";
 
 export type RootStackParamList = {
@@ -13,7 +13,7 @@ export type RootStackParamList = {
   AddReminder: undefined;
   EditProfile: undefined;
 };
-
+let darkTheme: any;
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {

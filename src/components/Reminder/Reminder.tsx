@@ -1,7 +1,17 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Pressable,
+} from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { reminderModel } from "src/types/remainder";
+import { globalStyles } from "@/styles/global";
+import Entypo from "@expo/vector-icons/Entypo";
+import { styles as style } from "./styles";
 
 interface reminderCompModel extends reminderModel {
   onDelete?: () => void;
@@ -26,6 +36,31 @@ const Reminder = ({ title, body, alertTime, onDelete }: reminderCompModel) => {
 };
 
 export default Reminder;
+
+export const NewReminder = () => {
+  return (
+    <Pressable style={style.reminderContainer}>
+      <View style={{ flexDirection: "row", gap: 15, alignItems: "center" }}>
+        <FontAwesome5 name="pills" size={20} color="grey" />
+        <View style={{ justifyContent: "center" }}>
+          <Text>Oxycodone</Text>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}>
+            <Text>10:00 AM</Text>
+            <View
+              style={{
+                width: 3,
+                height: 3,
+                backgroundColor: "grey",
+                borderRadius: 100,
+              }}></View>
+            <Text>Completed</Text>
+          </View>
+        </View>
+      </View>
+      <Entypo name="chevron-right" size={24} color="grey" />
+    </Pressable>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
