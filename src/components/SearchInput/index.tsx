@@ -1,14 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Text, View, TextInput } from "react-native";
+import React from "react";
+import { styles } from "./styles";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
-const index = () => {
+const SearchInput = () => {
   return (
-    <View>
-      <Text>index</Text>
+    <View style={styles.container}>
+      <AntDesign name="search1" size={20} color="#9B9B9B" />
+      <TextInput placeholder="Search Here" placeholderTextColor={"#9B9B9B"} />
     </View>
-  )
-}
+  );
+};
 
-export default index
-
-const styles = StyleSheet.create({})
+export default SearchInput;

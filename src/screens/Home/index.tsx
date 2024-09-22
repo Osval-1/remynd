@@ -8,6 +8,7 @@ import {
 import { NewButton } from "@/components/Button/Button";
 import { NewReminder } from "@/components/Reminder/Reminder";
 import { globalStyles } from "@/styles/global";
+import SearchInput from "@/components/SearchInput";
 
 const Home = () => {
   const insets = useSafeAreaInsets();
@@ -28,9 +29,7 @@ const Home = () => {
       <Text></Text>
       <Text>Home</Text>
       <NewButton />
-      <NewReminder />
-      <NewReminder />
-      <NewReminder />
+      <SearchInput />
     </ScrollView>
     // </SafeAreaView>
   );
