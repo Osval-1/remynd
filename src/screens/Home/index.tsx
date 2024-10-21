@@ -9,6 +9,7 @@ import { NewButton } from "@/components/Button/Button";
 import { NewReminder } from "@/components/Reminder/Reminder";
 import { globalStyles } from "@/styles/global";
 import { typography } from "@/styles/typography";
+import { images } from "@/assets/static";
 import SearchInput from "@/components/SearchInput";
 
 const Home = () => {
@@ -16,19 +17,25 @@ const Home = () => {
 
   return (
     <SafeAreaView>
-      <ScrollView contentContainerStyle={globalStyles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         <SearchInput />
-        <View>
-          <View >
-          <Text style={styles.header}>Hello,</Text>
-          <Text style={styles.bottomHeader}>Kathryn</Text>
-          </View>
+        <View style={styles.bannerContainer}>
           <View>
-            <Text>Your plan for today</Text>
-            <Text>1 of 4 completed</Text>
-            <Image />
+            <Text style={styles.header}>Hello,</Text>
+            <Text style={styles.bottomHeader}>Kathryn</Text>
           </View>
-          <Text>Show More</Text>
+          <View style={styles.banner}>
+            <Image source={images.banner} style={styles.imageStyle} />
+            <View style={styles.bannerTextContainer}>
+              <Text style={typography.h2}>Your plan</Text>
+              <Text style={typography.h2}>for today</Text>
+              <Text style={styles.bannerGreyText}>1 of 4 completed</Text>
+            </View>
+            <View style={styles.bannerRedTextContainer}>
+              <Text style={styles.bannerRedText}>Show More</Text>
+              <View style={styles.underline}></View>
+            </View>
+          </View>
         </View>
         <Text></Text>
         <Text>Home</Text>

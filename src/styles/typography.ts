@@ -7,6 +7,11 @@ export const typography = StyleSheet.create({
     fontSize: 28,
     lineHeight: 38,
   },
+  h2: {
+    fontFamily: "Montserrat-SemiBold",
+    fontSize: 18,
+    lineHeight: 24,
+  },
   subText: {
     fontFamily: "Montserrat-SemiBold",
   },

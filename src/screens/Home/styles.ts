@@ -1,9 +1,15 @@
 import { StyleSheet } from "react-native";
 import { typography } from "@/styles/typography";
+import { screenWidth, screenHeight } from "@/styles/metrics";
+import { globalStyles } from "@/styles/global";
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: "red",
+    ...globalStyles.container,
+    marginTop: 15,
+  },
+  bannerContainer: {
+    marginTop: 36,
   },
   header: {
     ...typography.h1,
@@ -11,5 +17,46 @@ export const styles = StyleSheet.create({
   bottomHeader: {
     ...typography.h1,
     fontFamily: "Montserrat-Regular",
+  },
+  banner: {
+    justifyContent: "space-between",
+    backgroundColor: "#F3F6C8",
+    height: screenHeight * 0.22,
+    borderRadius: 28,
+    marginTop: 16,
+  },
+  imageStyle: {
+    position: "absolute",
+    top: -80,
+    right: -30,
+    width: 245,
+    height: 251,
+    resizeMode: "contain",
+  },
+  bannerTextContainer: {
+    paddingTop: 24,
+    paddingLeft: 24,
+  },
+  bannerGreyText: {
+    fontFamily: "Montserrat-SemiBold",
+    fontSize: 11,
+    lineHeight: 24,
+    color: "#9B9B9B",
+  },
+  bannerRedTextContainer: {
+    paddingLeft: 24,
+    paddingBottom: 24,
+  },
+  bannerRedText: {
+    fontFamily: "Montserrat-Bold",
+    fontSize: 13,
+    lineHeight: 24,
+    color: "#EC7669",
+  },
+  underline: {
+    borderBottomWidth: 4,
+    paddingBottom: 10,
+    borderBottomColor: "#EC7669",
+    width: 78,
   },
 });
