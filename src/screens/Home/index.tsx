@@ -8,30 +8,33 @@ import {
 import { NewButton } from "@/components/Button/Button";
 import { NewReminder } from "@/components/Reminder/Reminder";
 import { globalStyles } from "@/styles/global";
+import { typography } from "@/styles/typography";
 import SearchInput from "@/components/SearchInput";
 
 const Home = () => {
   const insets = useSafeAreaInsets();
 
   return (
-    // <SafeAreaView>
-    <ScrollView contentContainerStyle={globalStyles.container}>
-      <TextInput />
-      <View>
-        <Text>Hello, Kathryn</Text>
+    <SafeAreaView>
+      <ScrollView contentContainerStyle={globalStyles.container}>
+        <SearchInput />
         <View>
-          <Text>Your plan for today</Text>
-          <Text>1 of 4 completed</Text>
-          <Image />
+          <View >
+          <Text style={styles.header}>Hello,</Text>
+          <Text style={styles.bottomHeader}>Kathryn</Text>
+          </View>
+          <View>
+            <Text>Your plan for today</Text>
+            <Text>1 of 4 completed</Text>
+            <Image />
+          </View>
+          <Text>Show More</Text>
         </View>
-        <Text>Show More</Text>
-      </View>
-      <Text></Text>
-      <Text>Home</Text>
-      <NewButton />
-      <SearchInput />
-    </ScrollView>
-    // </SafeAreaView>
+        <Text></Text>
+        <Text>Home</Text>
+        <NewButton />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

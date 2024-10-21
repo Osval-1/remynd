@@ -4,7 +4,7 @@ import { screenWidth, screenHeight } from "./metrics";
 export const globalStyles = StyleSheet.create({
   container: {
     // flex: 1,
-    paddingHorizontal: screenWidth * 0.074,
+    paddingHorizontal: screenWidth * 0.054,
     backgroundColor: "#fff",
   },
   text: {
