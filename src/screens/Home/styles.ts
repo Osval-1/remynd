@@ -1,3 +1,4 @@
+import { makeTagLink } from "lib/routes/links";
 import { StyleSheet } from "react-native";
 import { typography } from "@/styles/typography";
 import { screenWidth, screenHeight } from "@/styles/metrics";
@@ -55,8 +56,12 @@ export const styles = StyleSheet.create({
   },
   underline: {
     borderBottomWidth: 4,
-    paddingBottom: 10,
+    paddingBottom: 4,
     borderBottomColor: "#EC7669",
     width: 78,
+  },
+  reminderHeader: {
+    ...typography.header,
+    marginTop: 20,
   },
 });

@@ -12,8 +12,10 @@ export const typography = StyleSheet.create({
     fontSize: 18,
     lineHeight: 24,
   },
-  subText: {
-    fontFamily: "Montserrat-SemiBold",
+  header: {
+    fontFamily: "Montserrat-Regular",
+    fontSize: 17,
+    lineHeight: 38,
   },
   Title: {
     fontFamily: "Montserrat-Bold",

@@ -12,6 +12,7 @@ import { reminderModel } from "src/types/remainder";
 import { globalStyles } from "@/styles/global";
 import Entypo from "@expo/vector-icons/Entypo";
 import { styles as style } from "./styles";
+import { typography } from "@/styles/typography";
 
 interface reminderCompModel extends reminderModel {
   onDelete?: () => void;
@@ -40,20 +41,14 @@ export default Reminder;
 export const NewReminder = () => {
   return (
     <Pressable style={style.reminderContainer}>
-      <View style={{ flexDirection: "row", gap: 15, alignItems: "center" }}>
-        <FontAwesome5 name="pills" size={20} color="grey" />
-        <View style={{ justifyContent: "center" }}>
-          <Text>Oxycodone</Text>
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}>
-            <Text>10:00 AM</Text>
-            <View
-              style={{
-                width: 3,
-                height: 3,
-                backgroundColor: "grey",
-                borderRadius: 100,
-              }}></View>
-            <Text>Completed</Text>
+      <View style={style.icon$TextContainer}>
+        <FontAwesome5 name="pills" size={25} color="grey" />
+        <View style={style.reminderTextContainer}>
+          <Text style={typography.header}>Oxycodone</Text>
+          <View style={style.subTextContainer}>
+            <Text style={style.subText}>10:00 AM</Text>
+            <View style={style.dot}></View>
+            <Text style={style.subText}>Completed</Text>
           </View>
         </View>
       </View>

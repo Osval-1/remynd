@@ -37,9 +37,13 @@ const Home = () => {
             </View>
           </View>
         </View>
-        <Text></Text>
-        <Text>Home</Text>
-        <NewButton />
+        <Text style={styles.reminderHeader}>Due Today</Text>
+        <View style={{ gap: 12 }}>
+          <NewReminder />
+          <NewReminder />
+          <NewReminder />
+        </View>
+        {/* <NewButton /> */}
       </ScrollView>
     </SafeAreaView>
   );
