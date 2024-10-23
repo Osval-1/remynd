@@ -3,101 +3,90 @@ import {
   Text,
   View,
   TouchableOpacity,
+  Pressable,
   KeyboardAvoidingView,
+  TextInput,
 } from "react-native";
 import React from "react";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { styles } from "./styles";
 import { RootStackParamList } from "App";
-import { globalStyles } from "../styles/global";
-import { MaterialIcons, SimpleLineIcons } from "@expo/vector-icons";
-import BasicInput from "../../src/components/BasicInput/BasicInput";
-import SelectInput from "../../src/components/SelectInput/SelectInput";
-import DateTimeInput from "../../src/components/DateTimeInput/DateTimeInput";
+import { globalStyles } from "@/styles/global";
+import {
+  MaterialIcons,
+  SimpleLineIcons,
+  AntDesign,
+  FontAwesome5,
+  FontAwesome6,
+  Ionicons,
+} from "@expo/vector-icons";
+import BasicInput from "@/components/BasicInput/BasicInput";
+import SelectInput from "@/components/SelectInput/SelectInput";
+import DateTimeInput from "@/components/DateTimeInput/DateTimeInput";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { typography } from "@/styles/typography";
+import WeekDay from "./WeekDAy";
 
 type Props = NativeStackScreenProps<RootStackParamList, "AddReminder">;
 
 const AddReminder = ({ route, navigation }: Props) => {
   return (
-    <View style={{ ...globalStyles.container }}>
-      <KeyboardAvoidingView
-        behavior="padding"
-        style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <View style={styles.inputContainer}>
-          <Text style={styles.inputContainerHeader}>
-            Make Your Own Reminder
-          </Text>
-          <View>
-            <Text>Title</Text>
+    <SafeAreaView style={globalStyles.container}>
+      <Pressable style={styles.returnButton}>
+        <AntDesign name="arrowleft" size={24} color="#9B9B9B" />
+      </Pressable>
+      <Text style={typography.h1}>Add Reminder</Text>
+      <View style={styles.taskNameContainer}>
+        <Text style={typography.taskHeader}>Task Name</Text>
+        <View style={styles.taskNameInputContainer}>
+          <View style={{ flexDirection: "row", gap: 16 }}>
+            <FontAwesome5 name="pills" size={25} color="grey" />
+            <TextInput
+              placeholder="Oxycodone"
+              placeholderTextColor={"#000"}
+              style={{ ...typography.taskHeader, width: "75%" }}
+            />
           </View>
-          <BasicInput inputHeight={2} placeholder="Insert Title" />
-          <View>
-            <Text>Category</Text>
-          </View>
-          <SelectInput label="Select Category" />
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              marginTop: 15,
-              gap: 50,
-            }}>
-            <View style={{ justifyContent: "flex-start" }}>
-              <View>
-                <Text>Time</Text>
-              </View>
-              <View style={{ flexDirection: "row", gap: 4 }}>
-                <DateTimeInput label="00" />
-                <Text>:</Text>
-                <DateTimeInput label="00" />
-              </View>
-            </View>
-            <View>
-              <View>
-                <Text>Calender</Text>
-              </View>
-              <View style={{ flexDirection: "row", gap: 4 }}>
-                <DateTimeInput label="dd" />
-                <Text>:</Text>
-                <DateTimeInput label="mm" />
-                <Text>:</Text>
-                <DateTimeInput label="yyyy" />
-              </View>
-            </View>
-          </View>
-          <View>
-            <Text>Repeat</Text>
-          </View>
-          <SelectInput label="Once" />
+          <AntDesign name="scan1" size={24} color="black" />
         </View>
-      </KeyboardAvoidingView>
-    </View>
+      </View>
+      <View style={{ marginBottom: 20 }}>
+        <Text style={typography.taskHeader}>Amount & How long?</Text>
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <View style={styles.date$timeContainer}>
+            <View style={styles.date$timeLeft}>
+              <FontAwesome5 name="pills" size={20} color="grey" />
+              <Text style={typography.taskHeader}>2</Text>
+            </View>
+            <View style={styles.date$timeRight}>
+              <Text style={styles.date$timeText}>date</Text>
+              <FontAwesome6 name="caret-down" size={10} color="grey" />
+            </View>
+          </View>
+          <View style={styles.date$timeContainer}>
+            <View style={styles.date$timeLeft}>
+              <Ionicons name="calendar-clear-sharp" size={20} color="grey" />
+              <Text style={typography.taskHeader}>30</Text>
+            </View>
+            <View style={styles.date$timeRight}>
+              <Text style={styles.date$timeText}>time</Text>
+              <Ionicons name="caret-down" size={10} color="grey" />
+            </View>
+          </View>
+        </View>
+      </View>
+      <Text style={typography.taskHeader}>Repeat</Text>
+      <View style={{ flexDirection: "row", gap: 10 }}>
+        <WeekDay />
+        <WeekDay />
+        <WeekDay />
+        <WeekDay />
+        <WeekDay />
+        <WeekDay />
+        <WeekDay />
+      </View>
+    </SafeAreaView>
   );
 };
 
 export default AddReminder;
-
-const styles = StyleSheet.create({
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 15,
-  },
-  inputContainer: {
-    width: "90%",
-    backgroundColor: "#fff",
-    elevation: 5,
-    shadowColor: "#000",
-    padding: 20,
-    borderRadius: 15,
-  },
-  inputContainerHeader: {
-    paddingVertical: 10,
-    paddingHorizontal: 5,
-    backgroundColor: "#0397FF",
-    borderRadius: 35,
-    position: "relative",
-    top: -35,
-    textAlign: "center",
-    color: "#fff",
-  },
-});

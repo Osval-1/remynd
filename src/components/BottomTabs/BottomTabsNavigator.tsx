@@ -53,7 +53,13 @@ const BottomTabs = () => {
             headerShown: false,
           }}
         />
-        <Tab.Screen name="AddReminder" component={AddReminder} />
+        <Tab.Screen
+          name="AddReminder"
+          component={AddReminder}
+          options={{
+            headerShown: false,
+          }}
+        />
       </Tab.Navigator>
     </>
   );
@@ -66,5 +72,3 @@ type TabProps = {
 export const TabComponent = ({ icon }: TabProps) => {
   return <View>{icon}</View>;
 };
-
-const styles = StyleSheet.create({});

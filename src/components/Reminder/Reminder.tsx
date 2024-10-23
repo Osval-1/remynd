@@ -44,7 +44,7 @@ export const NewReminder = () => {
       <View style={style.icon$TextContainer}>
         <FontAwesome5 name="pills" size={25} color="grey" />
         <View style={style.reminderTextContainer}>
-          <Text style={typography.header}>Oxycodone</Text>
+          <Text style={typography.taskHeader}>Oxycodone</Text>
           <View style={style.subTextContainer}>
             <Text style={style.subText}>10:00 AM</Text>
             <View style={style.dot}></View>

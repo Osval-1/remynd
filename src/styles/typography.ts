@@ -17,6 +17,11 @@ export const typography = StyleSheet.create({
     fontSize: 17,
     lineHeight: 38,
   },
+  taskHeader: {
+    fontFamily: "Poppins-Medium",
+    fontSize: 15,
+    lineHeight: 38,
+  },
   Title: {
     fontFamily: "Montserrat-Bold",
   },

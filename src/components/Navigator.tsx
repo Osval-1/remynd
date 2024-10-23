@@ -2,11 +2,10 @@ import { StyleSheet, Text, View, Platform } from "react-native";
 import React, { useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Reminders from "../screens/Reminders";
-import AddReminder from "../screens/AddReminder";
 import EditProfile from "../screens/EditProfile";
 import Home from "@/screens/Home";
 import BottomTabs from "./BottomTabs/BottomTabsNavigator";
-import { LinearGradient } from "expo-linear-gradient";
+import AddReminder from "@/screens/AddReminder";
 
 export type RootStackParamList = {
   Reminders: undefined;
@@ -45,11 +44,12 @@ const Navigator = () => {
           headerShown: false,
         }}
       />
-      {/* <RootStack.Screen
+      <RootStack.Screen
         name="AddReminder"
         component={AddReminder}
         options={{
           animation: Platform.OS === "ios" ? "fade" : "simple_push",
+          headerShown: false,
         }}
       />
       <RootStack.Screen
@@ -58,11 +58,9 @@ const Navigator = () => {
         options={{
           animation: Platform.OS === "ios" ? "fade" : "simple_push",
         }}
-      /> */}
+      />
     </RootStack.Navigator>
   );
 };
 
 export default Navigator;
-
-const styles = StyleSheet.create({});

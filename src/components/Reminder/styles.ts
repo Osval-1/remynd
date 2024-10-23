@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { screenHeight } from "@/styles/metrics";
+import { typography } from "@/styles/typography";
 
 export const styles = StyleSheet.create({
   reminderContainer: {
@@ -36,4 +37,5 @@ export const styles = StyleSheet.create({
     fontSize: 13,
     color: "#9B9B9B",
   },
+
 });
