@@ -5,12 +5,15 @@ import Reminders from "../screens/Reminders";
 import AddReminder from "../screens/AddReminder";
 import EditProfile from "../screens/EditProfile";
 import Home from "@/screens/Home";
+import BottomTabs from "./BottomTabs/BottomTabsNavigator";
+import { LinearGradient } from "expo-linear-gradient";
 
 export type RootStackParamList = {
   Reminders: undefined;
   AddReminder: undefined;
   EditProfile: undefined;
   Home: undefined;
+  BottomTabs: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -26,6 +29,14 @@ const Navigator = () => {
           headerShown: false,
         }}
       /> */}
+      <RootStack.Screen
+        name="BottomTabs"
+        component={BottomTabs}
+        options={{
+          animation: Platform.OS === "ios" ? "fade" : "simple_push",
+          headerShown: false,
+        }}
+      />
       <RootStack.Screen
         name="Home"
         component={Home}

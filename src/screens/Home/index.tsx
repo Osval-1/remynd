@@ -42,6 +42,8 @@ const Home = () => {
           <NewReminder />
           <NewReminder />
           <NewReminder />
+          <NewReminder />
+          <NewReminder />
         </View>
         {/* <NewButton /> */}
       </ScrollView>

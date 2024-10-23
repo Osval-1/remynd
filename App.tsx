@@ -12,6 +12,7 @@ export type RootStackParamList = {
   Reminders: undefined;
   AddReminder: undefined;
   EditProfile: undefined;
+  Home: undefined;
 };
 let darkTheme: any;
 SplashScreen.preventAutoHideAsync();
