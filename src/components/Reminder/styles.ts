@@ -31,8 +31,9 @@ export const styles = StyleSheet.create({
     backgroundColor: "grey",
     borderRadius: 100,
   },
-  subText:{
-    fontFamily:"Montserrat-Regular",
-    fontSize:13,
-  }
+  subText: {
+    fontFamily: "Poppins-Regular",
+    fontSize: 13,
+    color: "#9B9B9B",
+  },
 });

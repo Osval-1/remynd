@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
   },
   bottomHeader: {
     ...typography.h1,
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "Poppins-Regular",
   },
   banner: {
     justifyContent: "space-between",
@@ -39,7 +39,7 @@ export const styles = StyleSheet.create({
     paddingLeft: 24,
   },
   bannerGreyText: {
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "Poppins-Regular",
     fontSize: 11,
     lineHeight: 24,
     color: "#9B9B9B",
@@ -49,7 +49,7 @@ export const styles = StyleSheet.create({
     paddingBottom: 24,
   },
   bannerRedText: {
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "Poppins-Semibold",
     fontSize: 13,
     lineHeight: 24,
     color: "#EC7669",

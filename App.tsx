@@ -40,10 +40,10 @@ export default function App() {
   }, []);
   const colorScheme = useColorScheme();
   const [fontsLoaded, fontError] = useFonts({
-    "Montserrat-Bold": require("./assets/fonts/Montserrat-Bold.ttf"),
-    "Montserrat-Regular": require("./assets/fonts/Montserrat-Regular.ttf"),
-    "Montserrat-SemiBold": require("./assets/fonts/Montserrat-SemiBold.ttf"),
-    "Montserrat-Medium": require("./assets/fonts/Montserrat-Medium.ttf"),
+    "Poppins-Medium": require("./assets/fonts/Poppins-Medium.ttf"),
+    "Poppins-Semibold": require("./assets/fonts/Poppins-SemiBold.ttf"),
+    "Poppins-Regular": require("./assets/fonts/Poppins-Regular.ttf"),
+
   });
   const onLayoutRootView = useCallback(async () => {
     if (appIsReady) {
