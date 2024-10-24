@@ -27,7 +27,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { typography } from "@/styles/typography";
 import WeekDay from "./WeekDay";
 import NotificationTime from "@/components/NotificationTime";
-import { NewButton } from "@/components/Button/Button";
+import Button from "@/components/Button/Button";
 
 type Props = NativeStackScreenProps<RootStackParamList, "AddReminder">;
 
@@ -78,7 +78,7 @@ const AddReminder = ({ route, navigation }: Props) => {
         </View>
       </View>
       <Text style={typography.taskHeader}>Repeat</Text>
-      <View style={{ flexDirection: "row", gap: 13 ,marginBottom:50}}>
+      <View style={{ flexDirection: "row", gap: 13, marginBottom: 50 }}>
         <WeekDay day="S" />
         <WeekDay day="M" />
         <WeekDay day="T" />
@@ -89,9 +89,11 @@ const AddReminder = ({ route, navigation }: Props) => {
       </View>
       <View>
         <Text style={typography.taskHeader}>Notification</Text>
-        <NotificationTime/>
+        <NotificationTime />
       </View>
-      <NewButton/>
+      <View style={{ marginTop: 20 }}>
+        <Button />
+      </View>
     </SafeAreaView>
   );
 };
