@@ -5,4 +5,7 @@ export const styles = StyleSheet.create({
   buttonContainer: {
     backgroundColor: lightTheme.colors.primary,
   },
+  newButtonContainer:{
+    
+  }
 });

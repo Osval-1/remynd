@@ -77,4 +77,16 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     gap: 5,
   },
+  weekDayContainer:{
+    backgroundColor: "#F8F8F6",
+    borderRadius: 100,
+    width: 35,
+    height: 35,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  weekDayText:{
+    fontFamily: "Poppins-Semibold",
+    fontSize: 24,
+  },
 });
