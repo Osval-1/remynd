@@ -1,4 +1,3 @@
-import { makeTagLink } from "lib/routes/links";
 import { StyleSheet } from "react-native";
 import { typography } from "@/styles/typography";
 import { screenWidth, screenHeight } from "@/styles/metrics";

@@ -4,7 +4,6 @@ import {
   View,
   TouchableOpacity,
   Pressable,
-  KeyboardAvoidingView,
   TextInput,
 } from "react-native";
 import React from "react";
@@ -13,16 +12,11 @@ import { styles } from "./styles";
 import { RootStackParamList } from "App";
 import { globalStyles } from "@/styles/global";
 import {
-  MaterialIcons,
-  SimpleLineIcons,
   AntDesign,
   FontAwesome5,
   FontAwesome6,
   Ionicons,
 } from "@expo/vector-icons";
-import BasicInput from "@/components/BasicInput/BasicInput";
-import SelectInput from "@/components/SelectInput/SelectInput";
-import DateTimeInput from "@/components/DateTimeInput/DateTimeInput";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { typography } from "@/styles/typography";
 import WeekDay from "./WeekDay";

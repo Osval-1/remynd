@@ -22,8 +22,10 @@ export const typography = StyleSheet.create({
     fontSize: 15,
     lineHeight: 38,
   },
-  Title: {
-    fontFamily: "Montserrat-Bold",
+  subText: {
+    fontFamily: "Poppins-Regular",
+    fontSize: 13,
+    color: "#9B9B9B",
   },
   body: {
     fontFamily: "Montserrat-Bold",

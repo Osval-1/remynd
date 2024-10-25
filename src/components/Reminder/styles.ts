@@ -21,6 +21,10 @@ export const styles = StyleSheet.create({
   reminderTextContainer: {
     justifyContent: "center",
   },
+  reminderText: {
+    ...typography.taskHeader,
+    lineHeight: 20,
+  },
   subTextContainer: {
     flexDirection: "row",
     alignItems: "center",
@@ -32,10 +36,4 @@ export const styles = StyleSheet.create({
     backgroundColor: "grey",
     borderRadius: 100,
   },
-  subText: {
-    fontFamily: "Poppins-Regular",
-    fontSize: 13,
-    color: "#9B9B9B",
-  },
-
 });

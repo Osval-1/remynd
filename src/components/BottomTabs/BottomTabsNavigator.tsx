@@ -1,6 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "@/screens/Home";
 import AddReminder from "@/screens/AddReminder";
+import Settings from "@/screens/Settings";
 import { RootStackParamList } from "App";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, Text, View } from "react-native";
@@ -53,13 +54,21 @@ const BottomTabs = () => {
             headerShown: false,
           }}
         />
-        <Tab.Screen
+        {/* <Tab.Screen
           name="AddReminder"
           component={AddReminder}
           options={{
             headerShown: false,
           }}
+        /> */}
+        <Tab.Screen
+          name="Settings"
+          component={Settings}
+          options={{
+            headerShown: false,
+          }}
         />
+
       </Tab.Navigator>
     </>
   );

@@ -6,6 +6,7 @@ import EditProfile from "../screens/EditProfile";
 import Home from "@/screens/Home";
 import BottomTabs from "./BottomTabs/BottomTabsNavigator";
 import AddReminder from "@/screens/AddReminder";
+import Settings from "@/screens/Settings";
 
 export type RootStackParamList = {
   Reminders: undefined;
@@ -13,6 +14,7 @@ export type RootStackParamList = {
   EditProfile: undefined;
   Home: undefined;
   BottomTabs: undefined;
+  Settings:undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -53,8 +55,8 @@ const Navigator = () => {
         }}
       />
       <RootStack.Screen
-        name="EditProfile"
-        component={EditProfile}
+        name="Settings"
+        component={Settings}
         options={{
           animation: Platform.OS === "ios" ? "fade" : "simple_push",
         }}

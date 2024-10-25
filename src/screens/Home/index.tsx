@@ -5,7 +5,7 @@ import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
-import { NewButton } from "@/components/Button/Button";
+import Button from "@/components/Button/Button";
 import { NewReminder } from "@/components/Reminder/Reminder";
 import { globalStyles } from "@/styles/global";
 import { typography } from "@/styles/typography";
