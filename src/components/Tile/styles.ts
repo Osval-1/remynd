@@ -12,7 +12,6 @@ export const styles = StyleSheet.create({
     borderBottomColor: "#F4F5F7",
     paddingTop: 12,
     paddingBottom: 20,
-    // height: 80,
   },
   tileRightContainer: {
     flexDirection: "row",

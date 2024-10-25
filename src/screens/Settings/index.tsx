@@ -21,20 +21,6 @@ const Settings = () => {
           <Tile />
           <Tile />
         </View>
-        <View style={{ marginTop: 40, gap: 17 }}>
-          <Text style={typography.taskHeader}>General</Text>
-          <View style={styles.underline}></View>
-          <Tile />
-          <Tile />
-          <Tile />
-        </View>
-        <View style={{ marginTop: 40, gap: 17 }}>
-          <Text style={typography.taskHeader}>General</Text>
-          <View style={styles.underline}></View>
-          <Tile />
-          <Tile />
-          <Tile />
-        </View>
       </ScrollView>
     </SafeAreaView>
   );
