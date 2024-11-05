@@ -43,7 +43,7 @@ export default function App() {
     "Poppins-Medium": require("./assets/fonts/Poppins-Medium.ttf"),
     "Poppins-Semibold": require("./assets/fonts/Poppins-SemiBold.ttf"),
     "Poppins-Regular": require("./assets/fonts/Poppins-Regular.ttf"),
-
+    IcoMoon: require('./assets/icomoon/icomoon.ttf'),
   });
   const onLayoutRootView = useCallback(async () => {
     if (appIsReady) {
@@ -59,7 +59,7 @@ export default function App() {
         theme={colorScheme == "dark" ? darkTheme : lightTheme}
         onReady={onLayoutRootView}>
         <Navigator />
-        <StatusBar style="dark" />
+        <StatusBar style="auto" />
       </NavigationContainer>
     </SafeAreaProvider>
   );
