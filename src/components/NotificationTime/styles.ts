@@ -19,20 +19,9 @@ export const styles = StyleSheet.create({
     paddingLeft: 20,
     gap: 16,
   },
-  mutateNotificationTime: {
-    height: 48,
+  addTimeIcon: {
+    backgroundColor: "rgba(63, 189, 241,0.2)",
     borderRadius: 14,
-    width: 48,
+    padding: 12,
   },
-  addTimeBackground: {
-    backgroundColor: "#3FBDF1",
-    height: 48,
-    opacity: 0.1,
-    borderRadius: 14,
-  },
-  addTimeIcon:{
-    position: "absolute",
-    top: "25%",
-    left: "25%",
-  }
 });

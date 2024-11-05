@@ -24,9 +24,7 @@ const NotificationTime = () => {
         <MaterialIcons name="notifications-active" size={24} color="grey" />
         <Text style={typography.header}>10:00AM</Text>
       </Pressable>
-      <Pressable style={styles.mutateNotificationTime}>
-        <View
-          style={styles.addTimeBackground}></View>
+      <Pressable>
         <Entypo
           name="plus"
           size={24}
