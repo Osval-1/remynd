@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <SafeAreaView>
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView contentContainerStyle={styles.container} overScrollMode="never">
         <SearchInput />
         <View style={styles.bannerContainer}>
           <View>

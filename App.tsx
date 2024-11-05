@@ -9,10 +9,9 @@ import { lightTheme } from "@/styles/theme";
 import { useColorScheme } from "react-native";
 
 export type RootStackParamList = {
-  Reminders: undefined;
   AddReminder: undefined;
-  EditProfile: undefined;
   Home: undefined;
+  Settings: undefined;
 };
 let darkTheme: any;
 SplashScreen.preventAutoHideAsync();
@@ -43,7 +42,7 @@ export default function App() {
     "Poppins-Medium": require("./assets/fonts/Poppins-Medium.ttf"),
     "Poppins-Semibold": require("./assets/fonts/Poppins-SemiBold.ttf"),
     "Poppins-Regular": require("./assets/fonts/Poppins-Regular.ttf"),
-    IcoMoon: require('./assets/icomoon/icomoon.ttf'),
+    IcoMoon: require("./assets/fonts/icomoon.ttf"),
   });
   const onLayoutRootView = useCallback(async () => {
     if (appIsReady) {

@@ -4,17 +4,15 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Reminders from "../screens/Reminders";
 import EditProfile from "../screens/EditProfile";
 import Home from "@/screens/Home";
-import BottomTabs from "./BottomTabs/BottomTabsNavigator";
+import BottomTabs from "./BottomTabs";
 import AddReminder from "@/screens/AddReminder";
 import Settings from "@/screens/Settings";
 
 export type RootStackParamList = {
-  Reminders: undefined;
   AddReminder: undefined;
-  EditProfile: undefined;
   Home: undefined;
   BottomTabs: undefined;
-  Settings:undefined;
+  Settings: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -22,14 +20,6 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 const Navigator = () => {
   return (
     <RootStack.Navigator>
-      {/* <RootStack.Screen
-        name="Reminders"
-        component={Reminders}
-        options={{
-          animation: Platform.OS === "ios" ? "fade" : "simple_push",
-          headerShown: false,
-        }}
-      /> */}
       <RootStack.Screen
         name="BottomTabs"
         component={BottomTabs}
