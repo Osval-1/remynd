@@ -25,10 +25,13 @@ import Button from "@/components/Button/Button";
 
 type Props = NativeStackScreenProps<RootStackParamList, "AddReminder">;
 
-const AddReminder = ({ route, navigation }: Props) => {
+const AddReminder = ({ navigation }: Props) => {
+  const handleBackButtonPress = () => {
+    navigation.goBack();
+  };
   return (
     <SafeAreaView style={globalStyles.container}>
-      <Pressable style={styles.returnButton}>
+      <Pressable style={styles.returnButton} onPress={handleBackButtonPress}>
         <AntDesign name="arrowleft" size={24} color="#9B9B9B" />
       </Pressable>
       <Text style={typography.h1}>Add Reminder</Text>

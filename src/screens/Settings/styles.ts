@@ -4,6 +4,7 @@ import { screenWidth, screenHeight } from "@/styles/metrics";
 import { globalStyles } from "@/styles/global";
 
 export const styles = StyleSheet.create({
+  container: { ...globalStyles.container, paddingBottom: 20 },
   header: {
     ...typography.h1,
     marginTop: 10,

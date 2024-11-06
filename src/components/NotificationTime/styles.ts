@@ -1,6 +1,4 @@
 import { StyleSheet } from "react-native";
-import { screenHeight } from "@/styles/metrics";
-import { typography } from "@/styles/typography";
 
 export const styles = StyleSheet.create({
   notificationTimeContainer: {
