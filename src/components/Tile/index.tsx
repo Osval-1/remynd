@@ -5,6 +5,7 @@ import { globalStyles } from "@/styles/global";
 import { styles } from "./styles";
 import { typography } from "@/styles/typography";
 import { Icon } from "@/utils/custom_icons";
+import SwitchToggle from "react-native-switch-toggle";
 
 type TileProps = {
   tileName: string;
@@ -24,13 +25,15 @@ const Tile = ({ tileName, subText, toogle, icon }: TileProps) => {
         </View>
       </View>
       {toogle ? (
-        <Switch
-          trackColor={{ false: "grey", true: "#0A6375" }}
-          thumbColor={isEnabled ? "silver" : "silver"}
-          ios_backgroundColor="#3e3e3e"
-          // onValueChange={toggleSwitch}
-          onValueChange={setIsEnabled}
-          value={isEnabled}
+        <SwitchToggle
+          switchOn={isEnabled}
+          onPress={() => setIsEnabled(!isEnabled)}
+          circleColorOff="#FFF"
+          circleColorOn="#FFF"
+          backgroundColorOn="#3FBDF1"
+          backgroundColorOff="#C1C7D0"
+          containerStyle={styles.switchContainerStyle}
+          circleStyle={styles.switchCircle}
         />
       ) : (
         <Icon name={"arrow-right-s-line-2"} size={24} color={"#C1C7D0"} />

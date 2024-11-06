@@ -27,24 +27,33 @@ const Settings = () => {
           <Tile
             tileName="Vibration"
             icon="vibration_24dp_5F6368_FILL0_wght400_GRAD0_opsz24"
-            subText="Off"
+            subText="Vibrate while alerting"
             toogle={true}
           />
-          <Tile tileName="Sync" icon="notification-2-fill-1-2" subText="Off" />
+          <Tile
+            tileName="Sync"
+            icon="sync_24dp_5F6368_FILL0_wght400_GRAD0_opsz24"
+            subText="Sync with other devices"
+            toogle={true}
+          />
         </View>
         <View style={{ marginTop: 40, gap: 17 }}>
           <Text style={typography.taskHeader}>General</Text>
           <View style={styles.underline}></View>
-          <Tile tileName="Rate" icon="notification-2-fill-1-2" subText="Off" />
-          <Tile tileName="Help" icon="notification-2-fill-1-2" subText="Off" />
           <Tile
-            tileName="Invite your friends"
-            icon="notification-2-fill-1-2"
-            subText="Off"
+            tileName="Rate"
+            icon="Rating-Filled"
+            subText="Give us a rating"
+          />
+          <Tile tileName="Help" icon="Info" subText="How to use Remynd" />
+          <Tile
+            tileName="Invite"
+            icon="communication_24dp_5F6368_FILL0_wght400_GRAD0_opsz24"
+            subText="Invite your friends to use Remynd"
           />
           <Tile
             tileName="Feedback"
-            icon="notification-2-fill-1-2"
+            icon="feedback_24dp_5F6368_FILL0_wght400_GRAD0_opsz24"
             subText="Off"
           />
         </View>

@@ -22,4 +22,15 @@ export const styles = StyleSheet.create({
     ...typography.taskHeader,
     lineHeight: 25,
   },
+  switchContainerStyle: {
+    width: 40,
+    height: 25,
+    borderRadius: 25,
+    padding: 2,
+  },
+  switchCircle: {
+    width: 20,
+    height: 20,
+    borderRadius: 20,
+  },
 });
