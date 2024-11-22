@@ -1,0 +1,27 @@
+// module.exports = {
+//   extends: ["expo", "prettier"],
+//   plugins: ["prettier"],
+//   rules: {
+//     "prettier/prettier": "warn",
+//   },
+//   // settings: {
+//   //   "import/resolver": {
+//   //     typescript: {},
+//   //   },
+//   // },
+// };
+  {
+    "extends": ["expo", "prettier"],
+    "plugins": ["prettier"],
+    "rules": {
+      "prettier/prettier": "warn"
+    },
+    "settings": {
+      "importresolver": {
+        "typescript": {}
+      }
+    },
+    "parser": "@typescript-eslint/parser",
+
+  }
+  

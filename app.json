@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "remynd",
-    "slug": "remynd",
+    "name": "Remynd",
+    "slug": "Remynd",
     "version": "1.0.0",
     "orientation": "portrait",
     "experiments": {
@@ -14,7 +14,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#0397FF"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -27,6 +29,14 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["expo-font", "expo-localization"]
+    "plugins": [
+      "expo-font",
+      "expo-localization"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "099716eb-08df-4851-855d-4e03549c1423"
+      }
+    }
   }
 }

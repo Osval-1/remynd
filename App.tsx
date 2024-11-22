@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import react, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
