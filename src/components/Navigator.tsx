@@ -1,8 +1,6 @@
-import { StyleSheet, Text, View, Platform } from "react-native";
+import {  Platform } from "react-native";
 import React, { useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Reminders from "../screens/Reminders";
-import EditProfile from "../screens/EditProfile";
 import Home from "@/screens/Home";
 import BottomTabs from "./BottomTabs";
 import AddReminder from "@/screens/AddReminder";
