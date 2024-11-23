@@ -8,7 +8,7 @@ import {
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
-import { reminderModel } from "src/types/remainder";
+import { reminderModel } from "@/types/reminder";
 import { globalStyles } from "@/styles/global";
 import Entypo from "@expo/vector-icons/Entypo";
 import { styles as style } from "./styles";

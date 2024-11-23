@@ -7,6 +7,10 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import Navigator from "@/components/Navigator";
 import { lightTheme } from "@/styles/theme";
 import { useColorScheme } from "react-native";
+import { migrateDbIfNeeded } from "@/utils/initialize_database";
+import {
+  SQLiteProvider,
+} from "expo-sqlite";
 
 export type RootStackParamList = {
   AddReminder: undefined;
@@ -57,8 +61,10 @@ export default function App() {
       <NavigationContainer
         theme={colorScheme == "dark" ? darkTheme : lightTheme}
         onReady={onLayoutRootView}>
-        <Navigator />
-        <StatusBar style="auto" />
+        <SQLiteProvider databaseName="Remainder.db" onInit={migrateDbIfNeeded}>
+          <Navigator />
+        </SQLiteProvider>
+        <StatusBar style="dark" />
       </NavigationContainer>
     </SafeAreaProvider>
   );

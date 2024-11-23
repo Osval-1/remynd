@@ -18,7 +18,7 @@ import Reminder from "@/components/Reminder/Reminder";
 import { database } from "@/utils/database";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import i18n from "../i18n";
-import { reminderModel } from "@/types/remainder";
+import { reminderModel } from "@/types/reminder";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Reminders">;
 

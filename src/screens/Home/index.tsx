@@ -1,23 +1,41 @@
 import { ScrollView, Text, View, TextInput, Image } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { styles } from "./styles";
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from "react-native-safe-area-context";
-import Button from "@/components/Button/Button";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { NewReminder } from "@/components/Reminder/Reminder";
-import { globalStyles } from "@/styles/global";
 import { typography } from "@/styles/typography";
 import { images } from "@/assets/static";
 import SearchInput from "@/components/SearchInput";
-
+import {
+  SQLiteProvider,
+  useSQLiteContext,
+  type SQLiteDatabase,
+} from "expo-sqlite";
+import { addItemAsync } from "@/utils/database_operations";
 const Home = () => {
-  const insets = useSafeAreaInsets();
+  const db = useSQLiteContext();
+  useEffect(() => {
+    const getdata = async () => {
+      const data = await db.getAllAsync("SELECT * FROM reminders ");
+      console.log(data);
+    };
+    const addData = async () => {
+      const data = await addItemAsync(db, {
+        reminder: "fritz",
+        due_date: "wednesday",
+        due_time: "12:00pm",
+      });
+      console.log(data);
+    };
+    // addData();
+    getdata();
+  });
 
   return (
     <SafeAreaView>
-      <ScrollView contentContainerStyle={styles.container} overScrollMode="never">
+      <ScrollView
+        contentContainerStyle={styles.container}
+        overScrollMode="never">
         <SearchInput />
         <View style={styles.bannerContainer}>
           <View>

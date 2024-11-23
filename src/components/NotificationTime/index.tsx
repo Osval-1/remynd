@@ -12,7 +12,7 @@ import {
   FontAwesome5,
   Entypo,
 } from "@expo/vector-icons";
-import { reminderModel } from "src/types/remainder";
+import { reminderModel } from "@/types/reminder";
 import { globalStyles } from "@/styles/global";
 import { styles } from "./styles";
 import { typography } from "@/styles/typography";

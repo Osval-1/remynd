@@ -6,7 +6,7 @@ import { globalStyles } from "@/styles/global";
 export const styles = StyleSheet.create({
   container: {
     ...globalStyles.container,
-    marginTop: 15,
+    // paddingTop: 15,
   },
   bannerContainer: {
     marginTop: 36,
