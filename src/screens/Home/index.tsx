@@ -1,8 +1,8 @@
 import { ScrollView, Text, View, TextInput, Image } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { styles } from "./styles";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { NewReminder } from "@/components/Reminder/Reminder";
+import { Reminder } from "@/components/Reminder/Reminder";
 import { typography } from "@/styles/typography";
 import { images } from "@/assets/static";
 import SearchInput from "@/components/SearchInput";
@@ -12,24 +12,28 @@ import {
   type SQLiteDatabase,
 } from "expo-sqlite";
 import { addItemAsync } from "@/utils/database_operations";
+import { ReminderType } from "@/types/reminder";
 const Home = () => {
+  const [reminder, setReminder] = useState<ReminderType[]>([]);
   const db = useSQLiteContext();
   useEffect(() => {
     const getdata = async () => {
-      const data = await db.getAllAsync("SELECT * FROM reminders ");
+      const data: ReminderType[] = await db.getAllAsync(
+        "SELECT * FROM reminders ",
+      );
+      setReminder(data);
       console.log(data);
     };
     const addData = async () => {
       const data = await addItemAsync(db, {
-        reminder: "fritz",
+        reminder: "pollo",
         due_date: "wednesday",
-        due_time: "12:00pm",
+        due_time: "14:00pm",
       });
-      console.log(data);
     };
     // addData();
     getdata();
-  });
+  },[]);
 
   return (
     <SafeAreaView>
@@ -57,13 +61,10 @@ const Home = () => {
         </View>
         <Text style={styles.reminderHeader}>Due Today</Text>
         <View style={{ gap: 12 }}>
-          <NewReminder />
-          <NewReminder />
-          <NewReminder />
-          <NewReminder />
-          <NewReminder />
+          {reminder.map((item) => (
+            <Reminder />
+          ))}
         </View>
-        {/* <NewButton /> */}
       </ScrollView>
     </SafeAreaView>
   );
